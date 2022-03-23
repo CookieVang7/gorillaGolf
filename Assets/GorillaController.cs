@@ -30,24 +30,8 @@ public class GorillaController : MonoBehaviour
 
         if (Input.GetKeyDown("w"))
         {
-            gorillaRigidbody.AddForce(new Vector2(0, 600));
+            gorillaRigidbody.AddForce(new Vector2(0, 1500));
 
         }
-        if (gorillaRigidbody.velocity.y < 0) // player is falling
-        {
-            Debug.Log("velocity is negative");
-            gorillaRigidbody.gravityScale = 10;
-        }
-        else
-        {
-            gorillaRigidbody.gravityScale = 1;
-        }
-        Debug.Log(gorillaRigidbody.velocity.y);
     }
-
-    //private IEnumerator amplifyGravity()
-    //{
-    //    //yield return new WaitForSeconds
-    //}
-
 }
