@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - jumpReset
+  - wall
   layers:
   - Default
   - TransparentFX
