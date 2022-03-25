@@ -43,7 +43,7 @@ public class GorillaController : MonoBehaviour
         }  
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         collisionObject = collision.gameObject;
         if (collision.gameObject.CompareTag("jumpReset"))
@@ -51,21 +51,16 @@ public class GorillaController : MonoBehaviour
             jumpCount = 1;
         }
 
-        if (collision.gameObject.CompareTag("wall"))
+        if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
         {
             jumpCount = 1;
             gorillaRigidbody.gravityScale = 2.5f;
         }
-        if (Input.GetKeyDown("w") && jumpCount == 1)
-        {
-            gorillaRigidbody.AddForce(new Vector2(-1500, 0));
-            jumpCount = 0;
-        }
-
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         gorillaRigidbody.gravityScale = 10;
+        jumpCount = 0;
     }
 
     private void GorillaWallJump(float wallJumpForce)
