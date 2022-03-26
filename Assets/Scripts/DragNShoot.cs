@@ -12,6 +12,7 @@ public class DragNShoot : MonoBehaviour
     public Vector2 maxPower;
     TrajectoryLine tl;
     Camera cam;
+     public Transform cameraTransform;
     Vector2 force;
     Vector3 startPoint;
     Vector3 endPoint;
@@ -29,17 +30,17 @@ public class DragNShoot : MonoBehaviour
 
           Debug.Log("Drag: " + OnMouseOverBall.hittable);
           var mousePosition = Input.mousePosition;
-          mousePosition.z = 15;
+          mousePosition.z = -cameraTransform.position.z;
           startPoint = cam.ScreenToWorldPoint(mousePosition);
           startPoint.z = 15;
        }
       
       if (Input.GetMouseButton(0) && hittable2) {
           var mousePosition = Input.mousePosition;
-          mousePosition.z = 15;
-          Vector3 currentPoint = cam.ScreenToWorldPoint(mousePosition);
-          currentPoint.z = 15;
-          var myStartPoint = new Vector3();
+          mousePosition.z = -cameraTransform.position.z;
+           Vector3 currentPoint = cam.ScreenToWorldPoint(mousePosition);
+          currentPoint.z = -cameraTransform.position.z;
+            var myStartPoint = new Vector3();
           myStartPoint.x = Ball.position.x;
           myStartPoint.y = Ball.position.y;
           tl.RenderLine(myStartPoint, currentPoint);
@@ -48,11 +49,11 @@ public class DragNShoot : MonoBehaviour
 
       if (Input.GetMouseButtonUp(0) && hittable2) {
         var mousePosition = Input.mousePosition;
-        mousePosition.z = 15;
-         endPoint = cam.ScreenToWorldPoint(mousePosition);
-         endPoint.z = 15;
+        mousePosition.z = -cameraTransform.position.z;
+            endPoint = cam.ScreenToWorldPoint(mousePosition);
+         endPoint.z = -cameraTransform.position.z;
 
-         force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
+            force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
          rb.AddForce(force * power * -1, ForceMode2D.Impulse);
          tl.EndLine();
          hittable2 = false;
