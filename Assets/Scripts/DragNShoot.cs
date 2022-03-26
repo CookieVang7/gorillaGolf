@@ -19,28 +19,25 @@ public class DragNShoot : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetMouseButtonDown(0)) {
-            var mousePosition = Input.mousePosition;
-            mousePosition.z = 15;
-            
-            startPoint = cam.ScreenToWorldPoint(mousePosition);
-            startPoint.z = 15;
-            Debug.Log("Below is startpoint");
-            Debug.Log(startPoint);
-        }
-if (Input.GetMouseButtonUp(0)) {
-         var mousePosition = Input.mousePosition;
-         mousePosition.z = 15;
-         endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+       if (Input.GetMouseButtonDown(0)) {
+           var mousePosition = Input.mousePosition;
+           mousePosition.z = 15;
+          startPoint = cam.ScreenToWorldPoint(mousePosition);
+          startPoint.z = 15;
+       }
+      
+
+      if (Input.GetMouseButtonUp(0)) {
+        var mousePosition = Input.mousePosition;
+        mousePosition.z = 15;
+         endPoint = cam.ScreenToWorldPoint(mousePosition);
          endPoint.z = 15;
-         Debug.Log("This is endpoint");
-         Debug.Log(endPoint);
 
          force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
          Debug.Log(force);
          rb.AddForce(force * power, ForceMode2D.Impulse);
-        
+
+      }
+   }
 }
-        
-    }
-}
+
