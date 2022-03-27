@@ -165,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 1}
+  m_Size: {x: 30, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &216671160
 SpriteRenderer:
@@ -258,7 +258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405712559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7399994, y: -3.6, z: -0.31311798}
+  m_LocalPosition: {x: 0.7399994, y: -3.6, z: 0}
   m_LocalScale: {x: 0.26535434, y: 2.5159, z: 1}
   m_Children: []
   m_Father: {fileID: 765208865}
@@ -710,7 +710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765208864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 3.4171731, z: -21.762556}
+  m_LocalPosition: {x: 7.5, y: 3.4171731, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1726079799}
@@ -907,6 +907,7 @@ GameObject:
   - component: {fileID: 1708088805}
   - component: {fileID: 1708088807}
   - component: {fileID: 1708088806}
+  - component: {fileID: 1708088808}
   m_Layer: 0
   m_Name: bottom
   m_TagString: Untagged
@@ -922,7 +923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708088804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07, y: -4.72, z: -0.37838173}
+  m_LocalPosition: {x: -0.07, y: -4.72, z: 0}
   m_LocalScale: {x: 1.8177178, y: 0.28191915, z: 1}
   m_Children: []
   m_Father: {fileID: 765208865}
@@ -938,7 +939,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1005,6 +1006,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1708088808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708088804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a61fdd8cfb8624ca8f128d2d85c798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holeBottom: {fileID: 1708088805}
 --- !u!1 &1726079798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726079798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.84, y: -0.54, z: 17.492733}
+  m_LocalPosition: {x: 0.84, y: -0.54, z: 0}
   m_LocalScale: {x: 0.9813, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 765208865}
@@ -1113,7 +1127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002308963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.87855864, y: -3.565073, z: -0.31311798}
+  m_LocalPosition: {x: -0.87855864, y: -3.565073, z: 0}
   m_LocalScale: {x: 0.26535434, y: 2.5159, z: 1}
   m_Children: []
   m_Father: {fileID: 765208865}
@@ -1277,6 +1291,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194686, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_Name
+      value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194686, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_TagString
       value: Ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []

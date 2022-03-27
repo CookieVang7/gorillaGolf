@@ -6,6 +6,7 @@ TagManager:
   tags:
   - jumpReset
   - wall
+  - Ball
   layers:
   - Default
   - TransparentFX
