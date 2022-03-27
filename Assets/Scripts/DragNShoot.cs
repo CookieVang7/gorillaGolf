@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class DragNShoot : MonoBehaviour
 {
+    [SerializeField]
+    private float maxDistanceBallGorilla;
     public float power = 10f;
     public Rigidbody2D rb;
     public Transform Ball;
+    public Transform Gorilla;
 
     public Vector2 minPower;
     public Vector2 maxPower;
@@ -25,8 +28,9 @@ public class DragNShoot : MonoBehaviour
     }
 
     private void Update() {
-       if (Input.GetMouseButtonDown(0) && OnMouseOverBall.hittable) {
+       if (Input.GetMouseButtonDown(0) && OnMouseOverBall.hittable && Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla) {
           hittable2 = true;
+            Debug.Log(Vector3.Distance(Ball.position, Gorilla.position));
 
           Debug.Log("Drag: " + OnMouseOverBall.hittable);
           var mousePosition = Input.mousePosition;
@@ -60,5 +64,12 @@ public class DragNShoot : MonoBehaviour
 
       }
    }
+
+    private float checkDistance()
+    {
+
+        return Vector3.Distance(Ball.position, Gorilla.position);
+
+    }
 }
 
