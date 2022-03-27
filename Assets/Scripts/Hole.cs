@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Hole : MonoBehaviour
 {
     [SerializeField] private Transform holeBottom;
+    [SerializeField] private GameObject winScreen;
     public static WaitForSeconds waitTime = new WaitForSeconds(1f);
 
 
@@ -15,12 +16,12 @@ public class Hole : MonoBehaviour
         Debug.Log("collision");
         if (collision.gameObject.CompareTag("Ball"))
         {
-            StartCoroutine(nextLevel());
+            StartCoroutine(activateWinScreen());
         }
     }
 
-    private IEnumerator nextLevel() { 
+    private IEnumerator activateWinScreen() { 
         yield return waitTime;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        winScreen.SetActive(true);
     }
 }
