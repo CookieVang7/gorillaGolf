@@ -75,15 +75,13 @@ public class GorillaController : MonoBehaviour
             Debug.Log("quack");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
-
-
+        
         if (collision.gameObject.tag == "Ball")
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gorillaCollider);
         }
-
     }
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
