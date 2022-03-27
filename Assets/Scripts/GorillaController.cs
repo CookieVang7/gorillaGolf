@@ -12,6 +12,8 @@ public class GorillaController : MonoBehaviour
     private GameObject collisionObject;
     private int jumpCount = 1;
     float playerCollisionDirection;
+    [SerializeField] private float wallJumpForce;
+    [SerializeField] private float verticalJumpForce;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,49 +34,52 @@ public class GorillaController : MonoBehaviour
 
         if (Input.GetKeyDown("w") && jumpCount == 1)
         {
-            gorillaRigidbody.AddForce(new Vector2(0, 1500));
+            gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             jumpCount = 0;
-        }
-        if (collisionObject != null && gorillaCollider.IsTouching(collisionObject.GetComponent<Collider2D>()) && collisionObject.CompareTag("wall") && Input.GetKeyDown("w"))
-        {
-            // bounds.size.y seems to take into account transform position. Changing to just this is getting the proper height of the wall.
-            
-            if (gorillaTransform.position.x < collisionObject.transform.position.x 
-                && gorillaTransform.position.y < collisionObject.GetComponent<Collider2D>().bounds.size.y)
+            if (GorillaOnTheWall())
             {
-                gorillaRigidbody.AddForce(new Vector2(-1500, 0));
-            } else if (gorillaRigidbody.position.x > collisionObject.transform.position.x
-                && gorillaTransform.position.y < collisionObject.GetComponent<Collider2D>().bounds.size.y)
-            {
-                gorillaRigidbody.AddForce(new Vector2(1500, 0));
+                GorillaWallJump(wallJumpForce);
             }
-        }
+        }  
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         collisionObject = collision.gameObject;
-        playerCollisionDirection = gorillaRigidbody.velocity.x;
-        Debug.Log(playerCollisionDirection);
         if (collision.gameObject.CompareTag("jumpReset"))
         {
             jumpCount = 1;
         }
 
-        if (collision.gameObject.CompareTag("wall"))
+        if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
         {
             jumpCount = 1;
             gorillaRigidbody.gravityScale = 2.5f;
         }
-        if (Input.GetKeyDown("w") && jumpCount == 1)
-        {
-            gorillaRigidbody.AddForce(new Vector2(-1500, 0));
-            jumpCount = 0;
-        }
-
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         gorillaRigidbody.gravityScale = 10;
+        jumpCount = 0;
+    }
+
+    private void GorillaWallJump(float wallJumpForce)
+    {
+        if (gorillaTransform.position.x < collisionObject.transform.position.x
+                    && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f))
+        {
+            gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
+        }
+        else if (gorillaRigidbody.position.x > collisionObject.transform.position.x
+          && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f))
+        {
+            gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
+        }
+    }
+
+    private bool GorillaOnTheWall()
+    {
+        bool isOnWall = collisionObject != null && gorillaCollider.IsTouching(collisionObject.GetComponent<Collider2D>()) && collisionObject.CompareTag("wall");
+        return isOnWall;
     }
 }
