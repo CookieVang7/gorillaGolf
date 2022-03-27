@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GorillaController : MonoBehaviour
 {
@@ -68,12 +69,22 @@ public class GorillaController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        if (collision.gameObject.CompareTag("spike"))
+        {
+            Debug.Log("quack");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+
         if (collision.gameObject.tag == "Ball")
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gorillaCollider);
         }
 
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         //gorillaRigidbody.gravityScale = 10;
