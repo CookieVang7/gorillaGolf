@@ -12,7 +12,8 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private int moveSpeed;
     private GameObject collisionObject;
     private int jumpCount = 1;
-    float playerCollisionDirection;
+    private float playerCollisionDirection;
+    private bool isOnGround;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float verticalJumpForce;
     // Start is called before the first frame update
@@ -25,12 +26,12 @@ public class GorillaController : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            gorillaTransform.position = gorillaTransform.position + new Vector3(-moveSpeed * Time.deltaTime, 0, 0);
+            gorillaRigidbody.AddForce(new Vector2(-moveSpeed, 0));
         }
 
         if (Input.GetKey("d"))
         {
-            gorillaTransform.position = gorillaTransform.position + new Vector3(moveSpeed * Time.deltaTime, 0, 0);
+            gorillaRigidbody.AddForce(new Vector2(moveSpeed, 0));
         }
 
         if (Input.GetKeyDown("w") && jumpCount == 1)
@@ -47,20 +48,28 @@ public class GorillaController : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         collisionObject = collision.gameObject;
-        if (collision.gameObject.CompareTag("jumpReset"))
+        if (collision.gameObject.CompareTag("jumpReset") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("wall"))
         {
             jumpCount = 1;
         }
 
-        if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
+        //if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
+        //{
+        //    gorillaRigidbody.gravityScale = 2.5f;
+        //}
+
+        if (collision.gameObject.CompareTag("ground"))
         {
-            jumpCount = 1;
-            gorillaRigidbody.gravityScale = 2.5f;
+            isOnGround = true;
+        } else
+        {
+            isOnGround = false;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.CompareTag("spike"))
         {
             Debug.Log("quack");
@@ -68,21 +77,29 @@ public class GorillaController : MonoBehaviour
         }
     }
 
+
+        if (collision.gameObject.tag == "Ball")
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gorillaCollider);
+        }
+
+    }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
-        gorillaRigidbody.gravityScale = 10;
+        //gorillaRigidbody.gravityScale = 10;
         jumpCount = 0;
     }
 
     private void GorillaWallJump(float wallJumpForce)
     {
         if (gorillaTransform.position.x < collisionObject.transform.position.x
-                    && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f))
+                    && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f) && !isOnGround)
         {
             gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
         }
         else if (gorillaRigidbody.position.x > collisionObject.transform.position.x
-          && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f))
+          && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f) && !isOnGround)
         {
             gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
         }
