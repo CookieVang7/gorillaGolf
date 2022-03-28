@@ -23,7 +23,7 @@ public class DragNShoot : MonoBehaviour
 
 
         private void Start() {
-        cam = Camera.main;
+        cam = FindObjectOfType<Camera>();
         tl = GetComponent<TrajectoryLine>();
     }
 
@@ -36,7 +36,7 @@ public class DragNShoot : MonoBehaviour
           var mousePosition = Input.mousePosition;
           mousePosition.z = -cameraTransform.position.z;
           startPoint = cam.ScreenToWorldPoint(mousePosition);
-          startPoint.z = 15;
+          startPoint.z = -cameraTransform.position.z;
        }
       
       if (Input.GetMouseButton(0) && hittable2) {

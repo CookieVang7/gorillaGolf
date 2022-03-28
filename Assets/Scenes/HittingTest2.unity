@@ -398,7 +398,7 @@ MonoBehaviour:
   gorillaRigidbody: {fileID: 579145929}
   gorillaCollider: {fileID: 579145931}
   mainSpriteRenderer: {fileID: 579145932}
-  moveSpeed: 2
+  moveSpeed: 5000
   wallJumpForce: 0
   verticalJumpForce: 0
 --- !u!60 &579145931
@@ -1456,7 +1456,7 @@ PrefabInstance:
       objectReference: {fileID: 780701759}
     - target: {fileID: 4984983375655194685, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: maxDistanceBallGorilla
-      value: 6
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194686, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_Name

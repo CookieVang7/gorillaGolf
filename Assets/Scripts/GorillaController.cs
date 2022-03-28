@@ -26,12 +26,14 @@ public class GorillaController : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            gorillaRigidbody.AddForce(new Vector2(-moveSpeed, 0));
+            Debug.Log(-moveSpeed * Time.deltaTime);
+            gorillaRigidbody.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0));
+
         }
 
         if (Input.GetKey("d"))
         {
-            gorillaRigidbody.AddForce(new Vector2(moveSpeed, 0));
+            gorillaRigidbody.AddForce(new Vector2(moveSpeed * Time.deltaTime, 0));
         }
 
         if (Input.GetKeyDown("w") && jumpCount == 1)
