@@ -23,7 +23,7 @@ public class DragNShoot : MonoBehaviour
 
 
         private void Start() {
-        cam = Camera.main;
+        cam = FindObjectOfType<Camera>();
         tl = GetComponent<TrajectoryLine>();
     }
 
