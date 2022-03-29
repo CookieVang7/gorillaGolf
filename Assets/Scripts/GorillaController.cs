@@ -26,7 +26,6 @@ public class GorillaController : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            Debug.Log(-moveSpeed * Time.deltaTime);
             gorillaRigidbody.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0));
 
         }
@@ -74,7 +73,6 @@ public class GorillaController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("spike"))
         {
-            Debug.Log("quack");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
