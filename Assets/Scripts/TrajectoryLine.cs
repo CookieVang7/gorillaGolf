@@ -5,6 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class TrajectoryLine : MonoBehaviour
 {
+    public float maxLineLengthY;
+    public float minLineLengthY;
+    public float maxLineLengthX;
+    public float minLineLengthX;
     public LineRenderer lr;
 
     private void Awake() {
@@ -16,6 +20,8 @@ public class TrajectoryLine : MonoBehaviour
         Vector3[] points = new Vector3[2];
         startPoint.z = 0;
         endPoint.z = 0;
+        endPoint.x = Mathf.Clamp(endPoint.x, endPoint.x + minLineLengthX, endPoint.x + maxLineLengthX);
+        endPoint.y = Mathf.Clamp(endPoint.y, endPoint.y - minLineLengthY, endPoint.y - maxLineLengthY);
         points[0] = startPoint;
         points[1] = endPoint;
 
