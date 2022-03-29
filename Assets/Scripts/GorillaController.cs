@@ -49,6 +49,7 @@ public class GorillaController : MonoBehaviour
 
         if (Input.GetKeyDown("w") && jumpCount == 1)
         {
+            Debug.Log("Jump now plz");
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             jumpCount = 0;
             ImprovedWallJump(wallJumpForce);
