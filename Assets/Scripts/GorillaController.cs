@@ -16,9 +16,20 @@ public class GorillaController : MonoBehaviour
     private bool isOnGround;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float verticalJumpForce;
+
+    private Sensor groundSensor;
+    private Sensor TLSensor;
+    private Sensor BLSensor;
+    private Sensor BRSensor;
+    private Sensor TRSensor;
     // Start is called before the first frame update
     void Start()
     {
+        groundSensor = transform.Find("groundSensor").GetComponent<Sensor>();
+        TLSensor = transform.Find("TLSensor").GetComponent<Sensor>();
+        BLSensor = transform.Find("BLSensor").GetComponent<Sensor>();
+        TRSensor = transform.Find("TRSensor").GetComponent<Sensor>();
+        BRSensor = transform.Find("BRSensor").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
@@ -26,7 +37,7 @@ public class GorillaController : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            Debug.Log(-moveSpeed * Time.deltaTime);
+           // Debug.Log(-moveSpeed * Time.deltaTime);
             gorillaRigidbody.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0));
 
         }
@@ -40,11 +51,13 @@ public class GorillaController : MonoBehaviour
         {
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             jumpCount = 0;
-            if (GorillaOnTheWall())
-            {
-                GorillaWallJump(wallJumpForce);
-            }
+            ImprovedWallJump(wallJumpForce);
         }  
+
+        if (BLSensor.state() && TLSensor.state() && !groundSensor.state())
+        {
+            gorillaTransform.rotation.Set(0f, 0f, -90f, 0f);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -102,6 +115,18 @@ public class GorillaController : MonoBehaviour
           && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f) && !isOnGround)
         {
             gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
+        }
+    }
+
+    private void ImprovedWallJump(float wallJumpForce)
+    {
+        if(BLSensor.state() && TLSensor.state() && !groundSensor.state())
+        {
+            gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
+        }
+        else if (BRSensor.state() && TRSensor.state() && !groundSensor.state())
+        {
+            gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
         }
     }
 
