@@ -265,11 +265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8933709230231922049, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.67
+      value: 11.07
       objectReference: {fileID: 0}
     - target: {fileID: 8933709230231922049, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.42
+      value: 16.4
       objectReference: {fileID: 0}
     - target: {fileID: 8933709230231922049, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -334,7 +334,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428160860}
   m_Enabled: 1
-  m_CellSize: {x: 2.3274, y: 2.3274, z: 0}
+  m_CellSize: {x: 2, y: 2, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
@@ -685,7 +685,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.6636363, y: 0.6636363, z: 0}
+  m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1390,7 +1390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2556150975911206266, guid: d588e86e8124ffd4498930a8b54191d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 2556150975911206266, guid: d588e86e8124ffd4498930a8b54191d4, type: 3}
       propertyPath: m_LocalPosition.y
