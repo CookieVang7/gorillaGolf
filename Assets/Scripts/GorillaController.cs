@@ -26,7 +26,7 @@ public class GorillaController : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            Debug.Log(-moveSpeed * Time.deltaTime);
+           // Debug.Log(-moveSpeed * Time.deltaTime);
             gorillaRigidbody.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0));
 
         }
@@ -55,7 +55,7 @@ public class GorillaController : MonoBehaviour
             jumpCount = 1;
         }
 
-        //if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
+       // if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
         //{
         //    gorillaRigidbody.gravityScale = 2.5f;
         //}
@@ -74,7 +74,6 @@ public class GorillaController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("spike"))
         {
-            Debug.Log("quack");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
@@ -93,6 +92,7 @@ public class GorillaController : MonoBehaviour
 
     private void GorillaWallJump(float wallJumpForce)
     {
+        // For Future reference: Make it able to detect tilemap collider2D? Instead of adding an extra hitbox
         if (gorillaTransform.position.x < collisionObject.transform.position.x
                     && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f) && !isOnGround)
         {
