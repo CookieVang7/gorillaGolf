@@ -21,11 +21,12 @@ public class DragNShoot : MonoBehaviour
     Vector3 startPoint;
     Vector3 endPoint;
     bool hittable2 = false;
-    public static int hitCount = 0;
+    public static int hitCount;
 
         private void Start() {
         cam = FindObjectOfType<Camera>();
         tl = GetComponent<TrajectoryLine>();
+        hitCount = 0;
     }
 
     private void Update() {
