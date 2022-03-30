@@ -8,11 +8,12 @@ public class WinScreen : MonoBehaviour
 {
     [SerializeField] private Button nextLevel;
     [SerializeField] private Button replay;
+    [SerializeField] private Scenes nextScene;
 
 
      void Start()
     {
-        nextLevel.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+        nextLevel.onClick.AddListener(() => LoadingScreen.LoadScene(nextScene.Name()));
         replay.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
 
 

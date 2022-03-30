@@ -16,7 +16,7 @@ public class MainMenuManager : MonoBehaviour
         startGame.onClick.AddListener(
             () =>
             {
-                LoadingScreen.LoadScene("JoshLevel");
+                LoadingScreen.LoadScene("TutorialLevel");
             });
 
         openCredits.onClick.AddListener(
