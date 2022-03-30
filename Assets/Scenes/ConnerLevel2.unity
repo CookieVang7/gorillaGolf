@@ -1791,6 +1791,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6165445998407194026, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165445998407194026, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165445998407194026, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6509804
+      objectReference: {fileID: 0}
     - target: {fileID: 6165445998407194027, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
       propertyPath: m_Name
       value: Gorilla
