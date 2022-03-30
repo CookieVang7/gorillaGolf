@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextLevel: {fileID: 572692139319617547}
   replay: {fileID: 572692138145297189}
+  nextScene: 0
 --- !u!1 &572692138145297191
 GameObject:
   m_ObjectHideFlags: 0
