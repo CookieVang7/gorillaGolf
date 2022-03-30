@@ -16,20 +16,9 @@ public class GorillaController : MonoBehaviour
     private bool isOnGround;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float verticalJumpForce;
-
-    private Sensor groundSensor;
-    private Sensor TLSensor;
-    private Sensor BLSensor;
-    private Sensor BRSensor;
-    private Sensor TRSensor;
     // Start is called before the first frame update
     void Start()
     {
-        groundSensor = transform.Find("groundSensor").GetComponent<Sensor>();
-        TLSensor = transform.Find("TLSensor").GetComponent<Sensor>();
-        BLSensor = transform.Find("BLSensor").GetComponent<Sensor>();
-        TRSensor = transform.Find("TRSensor").GetComponent<Sensor>();
-        BRSensor = transform.Find("BRSensor").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
@@ -49,16 +38,13 @@ public class GorillaController : MonoBehaviour
 
         if (Input.GetKeyDown("w") && jumpCount == 1)
         {
-            Debug.Log("Jump now plz");
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             jumpCount = 0;
-            ImprovedWallJump(wallJumpForce);
+            if (GorillaOnTheWall())
+            {
+                GorillaWallJump(wallJumpForce);
+            }
         }  
-
-        if (BLSensor.state() && TLSensor.state() && !groundSensor.state())
-        {
-            gorillaTransform.rotation.Set(0f, 0f, -90f, 0f);
-        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -69,7 +55,7 @@ public class GorillaController : MonoBehaviour
             jumpCount = 1;
         }
 
-        //if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
+       // if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
         //{
         //    gorillaRigidbody.gravityScale = 2.5f;
         //}
@@ -88,7 +74,6 @@ public class GorillaController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("spike"))
         {
-            Debug.Log("quack");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
@@ -107,6 +92,7 @@ public class GorillaController : MonoBehaviour
 
     private void GorillaWallJump(float wallJumpForce)
     {
+        // For Future reference: Make it able to detect tilemap collider2D? Instead of adding an extra hitbox
         if (gorillaTransform.position.x < collisionObject.transform.position.x
                     && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f) && !isOnGround)
         {
@@ -116,18 +102,6 @@ public class GorillaController : MonoBehaviour
           && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f) && !isOnGround)
         {
             gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
-        }
-    }
-
-    private void ImprovedWallJump(float wallJumpForce)
-    {
-        if(BLSensor.state() && TLSensor.state() && !groundSensor.state())
-        {
-            gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
-        }
-        else if (BRSensor.state() && TRSensor.state() && !groundSensor.state())
-        {
-            gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
         }
     }
 
