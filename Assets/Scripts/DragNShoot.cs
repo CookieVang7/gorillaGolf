@@ -11,6 +11,8 @@ public class DragNShoot : MonoBehaviour
     public Transform Ball;
     public Transform Gorilla;
 
+    [SerializeField] private AudioSource ballAudioSource;
+
     public Vector2 minPower;
     public Vector2 maxPower;
     TrajectoryLine tl;
@@ -20,6 +22,7 @@ public class DragNShoot : MonoBehaviour
     Vector3 startPoint;
     Vector3 endPoint;
     bool hittable2 = false;
+
 
 
         private void Start() {
@@ -60,6 +63,8 @@ public class DragNShoot : MonoBehaviour
             force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
          rb.AddForce(force * power * -1, ForceMode2D.Impulse);
          tl.EndLine();
+
+            ballAudioSource.Play();
          hittable2 = false;
 
       }

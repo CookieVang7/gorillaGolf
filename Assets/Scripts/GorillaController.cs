@@ -16,6 +16,9 @@ public class GorillaController : MonoBehaviour
     private bool isOnGround;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float verticalJumpForce;
+    [SerializeField] private AudioSource gorillaNoise;
+    [SerializeField] private AudioSource gorillaStomp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,7 @@ public class GorillaController : MonoBehaviour
         {
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             jumpCount = 0;
+            gorillaNoise.Play();
             if (GorillaOnTheWall())
             {
                 GorillaWallJump(wallJumpForce);
@@ -63,6 +67,10 @@ public class GorillaController : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             isOnGround = true;
+            if (Mathf.Abs(gorillaRigidbody.velocity.x) > 5 && !gorillaStomp.isPlaying)
+            {
+                gorillaStomp.Play();
+            }
         } else
         {
             isOnGround = false;
