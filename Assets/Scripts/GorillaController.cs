@@ -44,7 +44,12 @@ public class GorillaController : MonoBehaviour
             {
                 GorillaWallJump(wallJumpForce);
             }
-        }  
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadingScreen.LoadScene("MainMenu");
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -110,4 +115,6 @@ public class GorillaController : MonoBehaviour
         bool isOnWall = collisionObject != null && gorillaCollider.IsTouching(collisionObject.GetComponent<Collider2D>()) && collisionObject.CompareTag("wall");
         return isOnWall;
     }
+
+
 }
