@@ -16,8 +16,8 @@ public class GorillaController : MonoBehaviour
     private bool isOnGround;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float verticalJumpForce;
-    [SerializeField] private AudioSource gorillaNoise;
-    [SerializeField] private AudioSource gorillaStomp;
+    [SerializeField] private AudioSource gorillaNoise; // jump sfx
+    [SerializeField] private AudioSource gorillaStomp; // movement sfx
 
     // Start is called before the first frame update
     void Start()
@@ -39,15 +39,21 @@ public class GorillaController : MonoBehaviour
             gorillaRigidbody.AddForce(new Vector2(moveSpeed * Time.deltaTime, 0));
         }
 
-        if (Input.GetKeyDown("w") && jumpCount == 1)
+        if (Input.GetKeyDown("w") && jumpCount == 1) // player jump
         {
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             jumpCount = 0;
-            gorillaNoise.Play();
             if (GorillaOnTheWall())
             {
                 GorillaWallJump(wallJumpForce);
             }
+
+            if(gorillaNoise.isPlaying) // play gorilla jump noise
+            {
+                gorillaNoise.Stop();
+                gorillaNoise.Play();
+            }
+            else gorillaNoise.Play();
         }  
     }
 
@@ -64,7 +70,7 @@ public class GorillaController : MonoBehaviour
         //    gorillaRigidbody.gravityScale = 2.5f;
         //}
 
-        if (collision.gameObject.CompareTag("ground"))
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("jumpReset"))
         {
             isOnGround = true;
             if (Mathf.Abs(gorillaRigidbody.velocity.x) > 5 && !gorillaStomp.isPlaying)

@@ -107,8 +107,8 @@ MonoBehaviour:
   moveSpeed: 25
   wallJumpForce: 3000
   verticalJumpForce: 3000
-  gorillaNoise: {fileID: 0}
-  gorillaStomp: {fileID: 0}
+  gorillaNoise: {fileID: 7819369079050948540}
+  gorillaStomp: {fileID: -2700849520128449025}
 --- !u!50 &6165445998407194028
 Rigidbody2D:
   serializedVersion: 4
@@ -167,7 +167,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0e62a6e7d42204c4fa7347d6198e6aa3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -263,8 +263,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 00260215c3fa166429ee86c97b2f1846, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
