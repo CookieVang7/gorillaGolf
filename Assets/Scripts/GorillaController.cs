@@ -56,10 +56,12 @@ public class GorillaController : MonoBehaviour
             else gorillaNoise.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            LoadingScreen.LoadScene("MainMenu");
-        }
+        // this main menu button is currently breaking game music
+
+        // if (Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     LoadingScreen.LoadScene("MainMenu");
+        // }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
