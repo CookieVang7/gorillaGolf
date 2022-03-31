@@ -47,6 +47,12 @@ public class GorillaController : MonoBehaviour
             {
                 GorillaWallJump(wallJumpForce);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadingScreen.LoadScene("MainMenu");
+        }
 
             if(gorillaNoise.isPlaying) // play gorilla jump noise
             {
@@ -124,4 +130,6 @@ public class GorillaController : MonoBehaviour
         bool isOnWall = collisionObject != null && gorillaCollider.IsTouching(collisionObject.GetComponent<Collider2D>()) && collisionObject.CompareTag("wall");
         return isOnWall;
     }
+
+
 }
