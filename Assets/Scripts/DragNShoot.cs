@@ -61,8 +61,11 @@ public class DragNShoot : MonoBehaviour
          force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
          rb.AddForce(force * power * -1, ForceMode2D.Impulse);
          tl.EndLine();
-         hittable2 = false;
-         hitCount++;
+         ballAudioSource.Play();
+         hittable2 = false;
+
+         hitCount++;
+
          gameUI.UpdateHitCount(hitCount);
 
       }
