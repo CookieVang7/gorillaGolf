@@ -16,6 +16,9 @@ public class GorillaController : MonoBehaviour
     private bool isOnGround;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float verticalJumpForce;
+    [SerializeField] private AudioSource gorillaNoise; // jump sfx
+    [SerializeField] private AudioSource gorillaStomp; // movement sfx
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +29,7 @@ public class GorillaController : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            Debug.Log(-moveSpeed * Time.deltaTime);
+           // Debug.Log(-moveSpeed * Time.deltaTime);
             gorillaRigidbody.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0));
 
         }
@@ -36,7 +39,7 @@ public class GorillaController : MonoBehaviour
             gorillaRigidbody.AddForce(new Vector2(moveSpeed * Time.deltaTime, 0));
         }
 
-        if (Input.GetKeyDown("w") && jumpCount == 1)
+        if (Input.GetKeyDown("w") && jumpCount == 1) // player jump
         {
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             jumpCount = 0;
@@ -44,7 +47,21 @@ public class GorillaController : MonoBehaviour
             {
                 GorillaWallJump(wallJumpForce);
             }
-        }  
+
+            if(gorillaNoise.isPlaying) // play gorilla jump noise
+            {
+                gorillaNoise.Stop();
+                gorillaNoise.Play();
+            }
+            else gorillaNoise.Play();
+        }
+
+        // this main menu button is currently breaking game music
+
+        // if (Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     LoadingScreen.LoadScene("MainMenu");
+        // }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -55,14 +72,18 @@ public class GorillaController : MonoBehaviour
             jumpCount = 1;
         }
 
-        //if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
+       // if (collision.gameObject.CompareTag("wall") && gorillaRigidbody.velocity.y <= 0)
         //{
         //    gorillaRigidbody.gravityScale = 2.5f;
         //}
 
-        if (collision.gameObject.CompareTag("ground"))
+        if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("jumpReset"))
         {
             isOnGround = true;
+            if (Mathf.Abs(gorillaRigidbody.velocity.x) > 5 && !gorillaStomp.isPlaying)
+            {
+                gorillaStomp.Play();
+            }
         } else
         {
             isOnGround = false;
@@ -74,7 +95,6 @@ public class GorillaController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("spike"))
         {
-            Debug.Log("quack");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
@@ -93,6 +113,7 @@ public class GorillaController : MonoBehaviour
 
     private void GorillaWallJump(float wallJumpForce)
     {
+        // For Future reference: Make it able to detect tilemap collider2D? Instead of adding an extra hitbox
         if (gorillaTransform.position.x < collisionObject.transform.position.x
                     && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f) && !isOnGround)
         {
@@ -110,4 +131,6 @@ public class GorillaController : MonoBehaviour
         bool isOnWall = collisionObject != null && gorillaCollider.IsTouching(collisionObject.GetComponent<Collider2D>()) && collisionObject.CompareTag("wall");
         return isOnWall;
     }
+
+
 }
