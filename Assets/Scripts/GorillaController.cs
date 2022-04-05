@@ -19,6 +19,8 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private AudioSource gorillaNoise; // jump sfx
     [SerializeField] private AudioSource gorillaStomp; // movement sfx
 
+    [SerializeField] private GameObject escMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,11 @@ public class GorillaController : MonoBehaviour
                 gorillaNoise.Play();
             }
             else gorillaNoise.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            escMenu.SetActive(true);
         }
 
         // this main menu button is currently breaking game music
