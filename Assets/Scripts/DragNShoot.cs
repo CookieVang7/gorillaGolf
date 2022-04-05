@@ -15,6 +15,7 @@ public class DragNShoot : MonoBehaviour
     [SerializeField] private GameUI gameUI;
 
     [SerializeField] private AudioSource ballAudioSource;
+    [SerializeField] 
 
     public Vector2 minPower;
     public Vector2 maxPower;
@@ -31,6 +32,7 @@ public class DragNShoot : MonoBehaviour
         cam = FindObjectOfType<Camera>();
         tl = GetComponent<TrajectoryLine>();
         hitCount = 0;
+        Cursor.visible = true;
     }
 
     private void Update() {
@@ -43,6 +45,7 @@ public class DragNShoot : MonoBehaviour
        }
       
       if (Input.GetMouseButton(0) && hittable2) {
+          Cursor.visible = false;
           var mousePosition = Input.mousePosition;
             //Debug.Log("Mouse Position: " + mousePosition);
           mousePosition.z = -cameraTransform.position.z;
@@ -69,10 +72,12 @@ public class DragNShoot : MonoBehaviour
       }
 
       if (Input.GetMouseButtonUp(0) && hittable2) {
-          var mousePosition = Input.mousePosition;
-          mousePosition.z = -cameraTransform.position.z;
-         endPoint = cam.ScreenToWorldPoint(mousePosition);
-         endPoint.z = -cameraTransform.position.z;
+        //   var mousePosition = Input.mousePosition;
+        //   mousePosition.z = -cameraTransform.position.z;
+        //  endPoint = cam.ScreenToWorldPoint(mousePosition);
+        //  endPoint.z = -cameraTransform.position.z;
+
+        var endPoint = tl.getEndpoint();
 
          force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
          rb.AddForce(force * power * -1, ForceMode2D.Impulse);
@@ -81,7 +86,8 @@ public class DragNShoot : MonoBehaviour
          hittable2 = false;
 
          hitCount++;
-
+         
+         Cursor.visible = true;
          gameUI.UpdateHitCount(hitCount);
 
       }

@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class TrajectoryLine : MonoBehaviour
 {
+    private Vector3 endPoint2;
     public float maxDist;
 
     public LineRenderer lr;
@@ -26,11 +27,17 @@ public class TrajectoryLine : MonoBehaviour
         points[0] = startPoint;
         points[1] = endPoint;
 
+        this.endPoint2 = endPoint;
+
         lr.SetPositions(points);
 
     }
 
     public void EndLine() {
         lr.positionCount = 0;
+    }
+
+    public Vector3 getEndpoint() {
+        return endPoint2;
     }
 }
