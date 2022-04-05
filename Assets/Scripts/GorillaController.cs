@@ -24,6 +24,13 @@ public class GorillaController : MonoBehaviour
     private bool haveJump = true;
     private bool jumping = false;
     // Start is called before the first frame update
+
+        
+    [SerializeField] private float rayCheckDistance = 2.4f;
+
+    public LayerMask wallLayer;
+    private RaycastHit2D rightRay;
+    private RaycastHit2D leftRay;
     void Start()
     {
     }
@@ -31,6 +38,12 @@ public class GorillaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
+        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * rayCheckDistance, Color.red);
+        leftRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
+        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * rayCheckDistance, Color.red);
+
         horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
 
         if (Input.GetKeyDown("w") && haveJump) // player jump
@@ -50,7 +63,7 @@ public class GorillaController : MonoBehaviour
         if(jumping)
         {
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
-            GorillaWallJump(wallJumpForce);
+            improvedGorillaWallJump(wallJumpForce);
             jumping = false;
         }
 
@@ -123,6 +136,14 @@ public class GorillaController : MonoBehaviour
         else if (gorillaRigidbody.position.x > collisionObject.transform.position.x
           && gorillaTransform.position.y < (collisionObject.transform.position.y + collisionObject.GetComponent<Collider2D>().bounds.size.y / 2f) && !isOnGround && GorillaOnTheWall())
         {
+            gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
+        }
+    }
+
+        private void improvedGorillaWallJump(float wallJumpForce){
+        if(rightRay && !isOnGround) {
+            gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
+        } else if (leftRay && !isOnGround) {
             gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
         }
     }
