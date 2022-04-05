@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1380,7 +1380,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1101552493}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 83e7fd109658c0d4885c186ed4c3d17e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2284,6 +2284,22 @@ PrefabInstance:
       value: Gorilla
       objectReference: {fileID: 0}
     - target: {fileID: 6165445998407194028, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165445998407194028, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9e3f5b6fd8fbdfd4b9d9c4fcec25e723, type: 2}
+    - target: {fileID: 6165445998407194028, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165445998407194028, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165445998407194028, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
@@ -2331,6 +2347,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6165445998407194030, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9e3f5b6fd8fbdfd4b9d9c4fcec25e723, type: 2}
     - target: {fileID: 6165445998407194031, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
       propertyPath: moveSpeed
       value: 5000

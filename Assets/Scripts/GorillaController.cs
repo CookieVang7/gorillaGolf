@@ -43,8 +43,8 @@ public class GorillaController : MonoBehaviour
 
     private void FixedUpdate()
     {
- 
-                
+
+        //Debug.Log(horizontalMovement * Time.deltaTime); 
      gorillaRigidbody.AddForce(new Vector2(horizontalMovement * Time.deltaTime, 0));
 
         if(jumping)
@@ -53,32 +53,6 @@ public class GorillaController : MonoBehaviour
             GorillaWallJump(wallJumpForce);
             jumping = false;
         }
-
-
-        //if (Input.GetKeyDown("w") && jumpCount == 1) // player jump
-        //    {
-        //        gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
-        //        jumpCount = 0;
-        //        if (GorillaOnTheWall())
-        //        {
-        //            GorillaWallJump(wallJumpForce);
-        //        }
-
-        //        if (gorillaNoise.isPlaying) // play gorilla jump noise
-        //        {
-        //            gorillaNoise.Stop();
-        //            gorillaNoise.Play();
-        //        }
-        //        else gorillaNoise.Play();
-        //    }
-
-            // this main menu button is currently breaking game music
-
-            // if (Input.GetKeyDown(KeyCode.Escape))
-            // {
-            //     LoadingScreen.LoadScene("MainMenu");
-            // }
-        
 
 
     }
@@ -107,6 +81,13 @@ public class GorillaController : MonoBehaviour
         {
             isOnGround = false;
         }
+
+        if (GorillaOnTheWall() && horizontalMovement != 0)
+        {
+
+            Debug.Log("gorilla velocity is: " + gorillaRigidbody.velocity.y);
+            gorillaRigidbody.velocity = new Vector2(gorillaRigidbody.velocity.x, Mathf.Clamp(gorillaRigidbody.velocity.y, -1f, 50f));
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -121,6 +102,7 @@ public class GorillaController : MonoBehaviour
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gorillaCollider);
         }
+
     }
 
 
