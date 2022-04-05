@@ -26,7 +26,7 @@ public class GorillaController : MonoBehaviour
     // Start is called before the first frame update
 
         
-    [SerializeField] private float rayCheckDistance = 2.4f;
+    private float rayCheckDistance = 2.4f;
 
     public LayerMask wallLayer;
     private RaycastHit2D rightRay;
