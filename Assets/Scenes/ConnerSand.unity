@@ -3992,9 +3992,9 @@ GameObject:
   - component: {fileID: 702660441}
   - component: {fileID: 702660440}
   - component: {fileID: 702660439}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ground
-  m_TagString: ground
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

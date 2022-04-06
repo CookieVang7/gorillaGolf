@@ -23,26 +23,46 @@ public class GorillaController : MonoBehaviour
     private float verticalMovement;
     private bool haveJump = true;
     private bool jumping = false;
-    // Start is called before the first frame update
 
-        
-    private float rayCheckDistance = 2.4f;
-
+    // rayCasting instances / variables
+    private float rayCheckDistance; // Created on start()
     public LayerMask wallLayer;
     private RaycastHit2D rightRay;
     private RaycastHit2D leftRay;
+    private RaycastHit2D downRay; // Maybe a solution for the checking isOnGround
     void Start()
     {
+        // Works well with boxCast
+        //rayCheckDistance =  gorillaCollider.bounds.size.x/2 - .5f;
+        // Works well with rayCast
+        rayCheckDistance =  gorillaCollider.bounds.size.x/2 + .1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //Boxcast is also a thing, but I kind 
         rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
+        //rightRay = Physics2D.BoxCast(gorillaTransform.position, gorillaCollider.bounds.extents/2, 0f, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * rayCheckDistance, Color.red);
         leftRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
+        // leftRay = Physics2D.BoxCast(gorillaTransform.position, gorillaCollider.bounds.extents/2, 0f, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * rayCheckDistance, Color.red);
+        downRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(0, -1)), rayCheckDistance, wallLayer);
+        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(0, -1)) * rayCheckDistance, Color.red);
+        if (rightRay){
+            Debug.Log("Right ray active");
+            Debug.Log(rightRay.collider);
+        }     
+        if (leftRay){
+            Debug.Log("Left ray active");
+            Debug.Log(leftRay.collider);
+        }
+            if (downRay){
+            Debug.Log("Down ray active");
+            Debug.Log(downRay.collider);
+            isOnGround = true;
+        } else isOnGround = false;
 
         horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
 
@@ -85,14 +105,14 @@ public class GorillaController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("jumpReset"))
         {
-            isOnGround = true;
+            //isOnGround = true;
             if (Mathf.Abs(gorillaRigidbody.velocity.x) > 5 && !gorillaStomp.isPlaying)
             {
                 gorillaStomp.Play();
             }
         } else
         {
-            isOnGround = false;
+            //isOnGround = false;
         }
 
         if (GorillaOnTheWall() && horizontalMovement != 0)
