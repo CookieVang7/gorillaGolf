@@ -670,6 +670,10 @@ PrefabInstance:
       value: Gorilla
       objectReference: {fileID: 0}
     - target: {fileID: 6165445998407194027, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165445998407194027, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
       propertyPath: m_TagString
       value: Gorilla
       objectReference: {fileID: 0}
@@ -740,6 +744,10 @@ PrefabInstance:
     - target: {fileID: 6165445998407194031, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
       propertyPath: verticalJumpForce
       value: 3500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165445998457830173, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
@@ -2010,6 +2018,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194658, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194658, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194659, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
