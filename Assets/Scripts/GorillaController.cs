@@ -33,20 +33,20 @@ public class GorillaController : MonoBehaviour
     void Start()
     {
         // Works well with boxCast
-        //rayCheckDistance =  gorillaCollider.bounds.size.x/2 - .5f;
+        rayCheckDistance =  gorillaCollider.bounds.extents.x/2 + .1f;
         // Works well with rayCast
-        rayCheckDistance =  gorillaCollider.bounds.size.x/2 + .1f;
+        //rayCheckDistance =  gorillaCollider.bounds.extents.x + .1f;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Boxcast is also a thing, but I kind 
-        rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
-        //rightRay = Physics2D.BoxCast(gorillaTransform.position, gorillaCollider.bounds.extents/2, 0f, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
+        //rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
+        rightRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * rayCheckDistance, Color.red);
-        leftRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
-        // leftRay = Physics2D.BoxCast(gorillaTransform.position, gorillaCollider.bounds.extents/2, 0f, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
+        //leftRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
+        leftRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * rayCheckDistance, Color.red);
         downRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(0, -1)), rayCheckDistance, wallLayer);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(0, -1)) * rayCheckDistance, Color.red);
@@ -59,8 +59,8 @@ public class GorillaController : MonoBehaviour
             Debug.Log(leftRay.collider);
         }
             if (downRay){
-            Debug.Log("Down ray active");
-            Debug.Log(downRay.collider);
+            //Debug.Log("Down ray active");
+            //Debug.Log(downRay.collider);
             isOnGround = true;
         } else isOnGround = false;
 
