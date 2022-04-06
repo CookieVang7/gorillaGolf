@@ -3705,11 +3705,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194657, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.21
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194657, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.43
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194657, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3755,13 +3755,41 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.9811321
       objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194663, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: maxDist
+      value: 5.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 6317b3dd6ab617a40bc3354a7b3c2e00, type: 2}
+    - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_AngularDrag
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194685, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: power
-      value: 2
+      value: 4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194685, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: cursor
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194685, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: gameUI
