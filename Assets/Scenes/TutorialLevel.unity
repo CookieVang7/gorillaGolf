@@ -1489,7 +1489,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1541804220}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9e3f5b6fd8fbdfd4b9d9c4fcec25e723, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1911,8 +1911,20 @@ PrefabInstance:
       value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_AngularDrag
-      value: 0.01
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194685, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: power
