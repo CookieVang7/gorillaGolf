@@ -1855,6 +1855,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7974619263313824212, guid: 7abb039c480748248a6de88e50c57dbe, type: 3}
+      propertyPath: escMenu
+      value: 
+      objectReference: {fileID: 1117793838}
     - target: {fileID: 8734168753761950619, guid: 7abb039c480748248a6de88e50c57dbe, type: 3}
       propertyPath: m_Pivot.x
       value: 0
