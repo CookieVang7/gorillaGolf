@@ -9,10 +9,7 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private Rigidbody2D gorillaRigidbody;
     [SerializeField] private Collider2D gorillaCollider;
     [SerializeField] private Collider2D ballCollider;
-    [SerializeField] private SpriteRenderer mainSpriteRenderer;
     [SerializeField] private int moveSpeed;
-    private GameObject collisionObject;
-    private float playerCollisionDirection;
     private bool isOnGround;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private float verticalJumpForce;
@@ -21,7 +18,6 @@ public class GorillaController : MonoBehaviour
 
     // New movement variables
     private float horizontalMovement;
-    private float verticalMovement;
     private bool haveJump = true;
     private bool jumping = false;
 
@@ -83,7 +79,6 @@ public class GorillaController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        collisionObject = collision.gameObject;
         if (!collision.gameObject.CompareTag("Ball"))
         {
             haveJump = true;
