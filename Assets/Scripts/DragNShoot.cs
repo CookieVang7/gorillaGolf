@@ -32,7 +32,7 @@ public class DragNShoot : MonoBehaviour
         cam = FindObjectOfType<Camera>();
         tl = GetComponent<TrajectoryLine>();
         hitCount = 0;
-        Cursor.visible = true;
+        //Cursor.visible = true;
     }
 
     private void Update() {
@@ -45,7 +45,7 @@ public class DragNShoot : MonoBehaviour
        }
       
       if (Input.GetMouseButton(0) && hittable2) {
-          Cursor.visible = false;
+          //Cursor.visible = false;
           var mousePosition = Input.mousePosition;
             //Debug.Log("Mouse Position: " + mousePosition);
           mousePosition.z = -cameraTransform.position.z;
