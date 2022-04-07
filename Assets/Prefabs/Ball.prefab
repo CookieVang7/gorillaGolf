@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9528302, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,7 +98,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 4984983375655194686}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6317b3dd6ab617a40bc3354a7b3c2e00, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -120,7 +120,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -138,14 +138,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8652e53a3345a9c41822dc2cf3caadeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistanceBallGorilla: 0
-  power: 3
+  maxDistanceBallGorilla: 5
+  radius: 20
+  power: 4.9
   rb: {fileID: 4984983375655194684}
   Ball: {fileID: 4984983375655194657}
   Gorilla: {fileID: 0}
+  gameUI: {fileID: 0}
   ballAudioSource: {fileID: 0}
-  minPower: {x: -3, y: -3}
-  maxPower: {x: 3, y: 3}
+  minPower: {x: -9, y: -9}
+  maxPower: {x: 9, y: 9}
   cameraTransform: {fileID: 0}
 --- !u!120 &4984983375655194656
 LineRenderer:
@@ -264,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad706580eb73df45a98e7e5e7dc25eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDist: 5.5
   lr: {fileID: 0}
 --- !u!114 &4984983375655194662
 MonoBehaviour:
