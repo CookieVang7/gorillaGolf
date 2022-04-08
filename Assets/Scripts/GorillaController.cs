@@ -90,9 +90,6 @@ public class GorillaController : MonoBehaviour
         }
     }
 
-        else gorillaNoise.Play();
-    } 
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Ball"))
