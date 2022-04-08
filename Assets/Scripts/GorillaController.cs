@@ -83,9 +83,13 @@ public class GorillaController : MonoBehaviour
 
         if (gorillaNoise.isPlaying) // play gorilla jump noise 
         {
+            Time.timeScale = 0;
+            escMenu.SetActive(true);
             gorillaNoise.Stop();
             gorillaNoise.Play();
         }
+    }
+
         else gorillaNoise.Play();
     } 
 

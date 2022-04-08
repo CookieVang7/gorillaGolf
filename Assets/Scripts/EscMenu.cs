@@ -35,6 +35,7 @@ public class EscMenu : MonoBehaviour
         closeMenu.onClick.AddListener( //closes the menu
             () =>
             {
+                Time.timeScale = 1;
                 escMenu.SetActive(false);
             });
 
