@@ -31,10 +31,6 @@ public class DragNShoot : MonoBehaviour
     private void Update() {
         if (Input.GetMouseButtonDown(0) && OnMouseOverBall.hittable && Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla) {
             hittable2 = true;
-            var mousePosition = Input.mousePosition;
-            mousePosition.z = -cameraTransform.position.z;
-            startPoint = cam.ScreenToWorldPoint(mousePosition);
-            startPoint.z = -cameraTransform.position.z;
        }
 
         if (Input.GetMouseButton(0) && hittable2) {
@@ -42,16 +38,17 @@ public class DragNShoot : MonoBehaviour
             mousePosition.z = -cameraTransform.position.z;
             Vector3 currentPoint = cam.ScreenToWorldPoint(mousePosition);
             currentPoint.z = -cameraTransform.position.z;
-            var myStartPoint = new Vector3();
-            myStartPoint.x = Ball.position.x;
-            myStartPoint.y = Ball.position.y;
-            myStartPoint.z = Ball.position.z;
-            tl.RenderLine(myStartPoint, currentPoint);
+            startPoint.x = Ball.position.x;
+            startPoint.y = Ball.position.y;
+            startPoint.z = Ball.position.z;
+            tl.RenderLine(startPoint, currentPoint);
       }
 
         if (Input.GetMouseButtonUp(0) && hittable2) {
             var endPoint = tl.getEndpoint();
             force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = 0f;
             rb.AddForce(force * power * -1, ForceMode2D.Impulse);
             tl.EndLine();
             ballAudioSource.Play();
