@@ -80,6 +80,14 @@ public class DragNShoot : MonoBehaviour
         var endPoint = tl.getEndpoint();
 
          force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
+
+            // reset ball velocity before applying force
+            Ball.SetParent(null);
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = 0;
+
+            Debug.Log(rb.velocity);
+            
          rb.AddForce(force * power * -1, ForceMode2D.Impulse);
          tl.EndLine();
          ballAudioSource.Play();

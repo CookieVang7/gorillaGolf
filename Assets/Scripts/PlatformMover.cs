@@ -15,7 +15,7 @@ public class PlatformMover : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private bool movingTowardsStart = false;
 
-    void Update()
+    void FixedUpdate()
     {
 
         float step = speed * Time.deltaTime;
