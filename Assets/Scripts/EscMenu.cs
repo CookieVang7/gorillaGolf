@@ -47,6 +47,7 @@ public class EscMenu : MonoBehaviour
         yesMainMenu.onClick.AddListener(
             () =>
             {
+                Time.timeScale = 1;
                 LoadingScreen.LoadScene("MainMenu");
             });
         noMainMenu.onClick.AddListener(
@@ -60,7 +61,10 @@ public class EscMenu : MonoBehaviour
                 confirmRestart.SetActive(true);
             });
 
-        yesRestart.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+        yesRestart.onClick.AddListener(() => {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            });
         noRestart.onClick.AddListener(
             () =>
             {
