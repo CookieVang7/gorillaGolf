@@ -73,9 +73,9 @@ public class GorillaController : MonoBehaviour
     {
 
         //Debug.Log(horizontalMovement * Time.deltaTime); 
-     gorillaRigidbody.AddForce(new Vector2(horizontalMovement * Time.deltaTime, 0));
+        gorillaRigidbody.AddForce(new Vector2(horizontalMovement * Time.deltaTime, 0));
 
-        if(jumping)
+        if (jumping)
         {
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             GorillaWallJump(wallJumpForce);
@@ -88,6 +88,7 @@ public class GorillaController : MonoBehaviour
             gorillaNoise.Play();
         }
 
+    }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Ball"))
