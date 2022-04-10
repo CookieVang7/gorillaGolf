@@ -5,14 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PlatformingTesting.unity
     guid: 614c9ec059fadaf4bae16f35d25899e0
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: a864545994414a8499496d4f27da0392
-  - enabled: 1
-    path: Assets/Scenes/JoshLevel.unity
+  - enabled: 0
+    path: Assets/Scenes/JoshLevelOld.unity
     guid: e2440e10266244a4fbf9f3f8533201cc
   - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ConnerLevel2.unity
     guid: b5d75eda2817cb3429f0c3abedfb4b48
   - enabled: 1
-    path: Assets/Scenes/Courses.unity
-    guid: 681f3a1f8296b4c43b8963cb69afadaa
+    path: Assets/Scenes/JoshLevel.unity
+    guid: 8121f72a5a0398c45b1d475e71f40818
   m_configObjects: {}
