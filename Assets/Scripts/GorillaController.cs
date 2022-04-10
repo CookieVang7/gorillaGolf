@@ -60,6 +60,12 @@ public class GorillaController : MonoBehaviour
             jumping = true;
             haveJump = false;
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            escMenu.SetActive(true);
+        }
     }
 
     private void FixedUpdate()
@@ -75,8 +81,17 @@ public class GorillaController : MonoBehaviour
             jumping = false;
         }
 
-
+        if (gorillaNoise.isPlaying) // play gorilla jump noise 
+        {
+            Time.timeScale = 0;
+            escMenu.SetActive(true);
+            gorillaNoise.Stop();
+            gorillaNoise.Play();
+        }
     }
+
+        else gorillaNoise.Play();
+    } 
 
     private void OnCollisionStay2D(Collision2D collision)
     {
