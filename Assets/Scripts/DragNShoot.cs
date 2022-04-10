@@ -76,12 +76,19 @@ public class DragNShoot : MonoBehaviour
         //   mousePosition.z = -cameraTransform.position.z;
         //  endPoint = cam.ScreenToWorldPoint(mousePosition);
         //  endPoint.z = -cameraTransform.position.z;
+        startPoint = new Vector3(Ball.position.x, Ball.position.y, -cameraTransform.position.z);
 
         var endPoint = tl.getEndpoint();
 
          force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
 
             // reset ball velocity before applying force
+            // note: the force applied to the ball seems to be amplified greatly when on moving platforms
+            // best guess is that by changing the origin point of the line things get wonky
+            // maybe if we get start point as ball position in update things will be better?
+            // Seems to have worked => the problem was from startPoint being set on mouse down, so if you took a 
+            // while to release the button, then you would have weird position (a position you are no longer near)
+            // that would form the basis for the shot vector.
             Ball.SetParent(null);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = 0;
