@@ -9,8 +9,8 @@ public class Courses : MonoBehaviour
     [SerializeField] private Button hole1;
     [SerializeField] private Button hole2;
     [SerializeField] private Button hole3;
-    //[SerializeField] private Button hole4;
-    //[SerializeField] private Button hole5;
+    [SerializeField] private Button hole4;
+    [SerializeField] private Button hole5;
     //[SerializeField] private Button hole6;
     //[SerializeField] private Button hole7;
     //[SerializeField] private Button hole8;
@@ -42,6 +42,19 @@ public class Courses : MonoBehaviour
             {
                 LoadingScreen.LoadScene("JoshLevel");
             });
+
+        hole4.onClick.AddListener(
+            () =>
+            {
+                LoadingScreen.LoadScene("SandLevel3");
+            });
+
+        hole5.onClick.AddListener(
+            () =>
+            {
+                LoadingScreen.LoadScene("SandLevel2");
+            });
+
     }
 
     // Update is called once per frame

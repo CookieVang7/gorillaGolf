@@ -10,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button openCredits;
     [SerializeField] private Button closeCredits;
     [SerializeField] private GameObject creditsUI;
+    [SerializeField] private GameObject music;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,10 @@ public class MainMenuManager : MonoBehaviour
             () => {
                 creditsUI.SetActive(false);
             });
+        if(MusicScript.numberOfMusic < 1)
+        {
+            Object.Instantiate(music);
+        }
     }
 
 
