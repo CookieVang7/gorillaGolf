@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SandLevel3.unity
     guid: 39945e377dd551247acd40c21140e0bf
+  - enabled: 1
+    path: Assets/Scenes/Courses.unity
+    guid: 681f3a1f8296b4c43b8963cb69afadaa
   m_configObjects: {}
