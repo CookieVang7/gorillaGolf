@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
+    public static int numberOfMusic;
     // Start is called before the first frame update
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+            numberOfMusic++;
+            DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
