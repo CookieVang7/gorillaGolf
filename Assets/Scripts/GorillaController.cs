@@ -9,6 +9,7 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private Rigidbody2D gorillaRigidbody;
     [SerializeField] private Collider2D gorillaCollider;
     [SerializeField] private Collider2D ballCollider;
+    [SerializeField] private Animator animator;
     [SerializeField] private int moveSpeed;
     private bool isOnGround;
     [SerializeField] private float wallJumpForce;
@@ -35,6 +36,7 @@ public class GorillaController : MonoBehaviour
         boxCheckDistance = gorillaCollider.bounds.extents.y - .5f;
         Physics2D.IgnoreCollision(ballCollider, gorillaCollider);
     }
+    private static readonly int GORILLA_WALK = Animator.StringToHash("GorillaWalk");
     void Update()
     {
         // Ray casting / Box casting for conditionals like wall jumping and isOnGround checks
@@ -45,8 +47,12 @@ public class GorillaController : MonoBehaviour
         if (downRay){
             isOnGround = true;
         } else isOnGround = false;
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        horizontalMovement = horizontal * moveSpeed;
 
-        horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        animator.SetBool(GORILLA_WALK, horizontal > 0 || horizontal < 0);
+
+        
 
         if (Input.GetKeyDown("w") && haveJump) // player jump
         {

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6165445998407194030}
   - component: {fileID: 7819369079050948540}
   - component: {fileID: -2700849520128449025}
+  - component: {fileID: 2081586122007729356}
   m_Layer: 2
   m_Name: Gorilla
   m_TagString: Gorilla
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0431d1d1d54356e4889696f32f07bea1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df60921ae12b6f3408f20de2ecbd6264, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,6 +105,7 @@ MonoBehaviour:
   gorillaRigidbody: {fileID: 6165445998407194028}
   gorillaCollider: {fileID: 6165445998407194030}
   ballCollider: {fileID: 0}
+  animator: {fileID: 2081586122007729356}
   moveSpeed: 5000
   wallJumpForce: 2200
   verticalJumpForce: 3500
@@ -147,18 +149,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022443771, y: -0.5001749}
+  m_Offset: {x: 0.21730804, y: -0.3323486}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.68, y: 3.4414454}
+    oldSize: {x: 4.555, y: 2.55}
     newSize: {x: 4.681143, y: 3.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.482355, y: 2.144675}
+  m_Size: {x: 4.0028515, y: 1.8090224}
   m_EdgeRadius: 0
 --- !u!82 &7819369079050948540
 AudioSource:
@@ -352,6 +354,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2081586122007729356
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6165445998407194027}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3b9e965da42169d4db0d0320558f9c99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6165445998457830173
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,19 +429,20 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.0700457, y: 0.20973682}
-      - {x: -1.3486423, y: 0.009600639}
-      - {x: -1.4104486, y: -0.36921895}
+    - - {x: -0.55484414, y: 0.12090874}
+      - {x: -0.7564564, y: -0.10291481}
+      - {x: -0.9544625, y: -0.44620335}
       - {x: 1.0218234, y: -0.4649167}
-      - {x: 2.6918173, y: 0.009209871}
+      - {x: 2.4490213, y: -0.020399809}
+      - {x: 2.3519154, y: 0.33375168}
       - {x: 2.1525087, y: 0.63765526}
-      - {x: 1.9788227, y: 1.0743513}
-      - {x: 1.8058138, y: 1.0750532}
-      - {x: 1.4713297, y: 0.89583826}
-      - {x: 0.9877677, y: 0.5125444}
+      - {x: 2.038042, y: 0.7427263}
+      - {x: 1.9420156, y: 0.76711655}
+      - {x: 1.6845179, y: 0.7063384}
+      - {x: 1.2601714, y: 0.3822639}
       - {x: 0.88955784, y: 0.057333946}
       - {x: 0.594182, y: 0.115701675}
       - {x: 0.26858878, y: 0.1263609}
-      - {x: 0.07109666, y: 0.0076067448}
-      - {x: -0.15830147, y: 0.01560545}
-      - {x: -0.57547617, y: 0.20103067}
+      - {x: 0.10070634, y: 0.14380956}
+      - {x: -0.039862752, y: 0.19918299}
+      - {x: -0.2853036, y: 0.2543277}
