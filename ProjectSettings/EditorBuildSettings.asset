@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/PlatformingTesting.unity
+    path: 
     guid: 614c9ec059fadaf4bae16f35d25899e0
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
@@ -18,24 +18,27 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialLevel.unity
     guid: d91f86efb0ed3fc4c89506dcf6f0bf40
   - enabled: 1
-    path: Assets/Scenes/ConnerLevel2.unity
+    path: Assets/Scenes/JungleLevel2.unity
     guid: b5d75eda2817cb3429f0c3abedfb4b48
   - enabled: 1
-    path: Assets/Scenes/JoshLevel.unity
+    path: Assets/Scenes/JungleLevel3.unity
     guid: 8121f72a5a0398c45b1d475e71f40818
   - enabled: 1
     path: Assets/Scenes/SandLevel2.unity
     guid: d8e5a5650b73c114ab7491ed985dda36
   - enabled: 1
-    path: Assets/Scenes/SandLevel3.unity
+    path: Assets/Scenes/SandLevel1.unity
     guid: 39945e377dd551247acd40c21140e0bf
   - enabled: 1
     path: Assets/Scenes/Courses.unity
     guid: 681f3a1f8296b4c43b8963cb69afadaa
   - enabled: 1
-    path: Assets/Scenes/JoshSand.unity
+    path: Assets/Scenes/SandLevel3.unity
     guid: b84f6c2d4dbbd1b439ab3eb37ba09113
   - enabled: 1
-    path: Assets/Scenes/BenLevel.unity
+    path: Assets/Scenes/SnowLevel1.unity
     guid: 7c3db9846604b604793d53815596c61f
+  - enabled: 1
+    path: Assets/Scenes/SnowLevel2.unity
+    guid: 90d99cb5c3a93ac458613ca66f0b291c
   m_configObjects: {}

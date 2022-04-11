@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -353,6 +353,10 @@ PrefabInstance:
       propertyPath: strokes
       value: 
       objectReference: {fileID: 688389307}
+    - target: {fileID: 572692137896552870, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: nextScene
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 572692137896552871, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4367,11 +4371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194657, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.14
+      value: -21.41
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194657, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.58
+      value: -9.97
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194657, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: m_LocalPosition.z
