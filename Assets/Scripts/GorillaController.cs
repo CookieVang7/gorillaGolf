@@ -27,7 +27,7 @@ public class GorillaController : MonoBehaviour
     public LayerMask wallLayer;
     private RaycastHit2D rightRay;
     private RaycastHit2D leftRay;
-    private RaycastHit2D downRay; // Maybe a solution for the checking isOnGround
+    private RaycastHit2D downRay;
     [SerializeField] private GameObject escMenu;
     void Start()
     {
@@ -35,19 +35,13 @@ public class GorillaController : MonoBehaviour
         boxCheckDistance = gorillaCollider.bounds.extents.y - .5f;
         Physics2D.IgnoreCollision(ballCollider, gorillaCollider);
     }
-
-    // Update is called once per frame
     void Update()
     {
-        //Boxcast is also a thing, but I kind 
+        // Ray casting / Box casting for conditionals like wall jumping and isOnGround checks
         rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
-        //rightRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
-        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * rayCheckDistance, Color.red);
         leftRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
-        //leftRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
-        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * rayCheckDistance, Color.red);
         downRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(0, -1)), boxCheckDistance, wallLayer);
-        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(0, -1)) * boxCheckDistance, Color.red); // This doesn't represent the boxCast by any means
+
         if (downRay){
             isOnGround = true;
         } else isOnGround = false;
@@ -71,8 +65,6 @@ public class GorillaController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        //Debug.Log(horizontalMovement * Time.deltaTime); 
         gorillaRigidbody.AddForce(new Vector2(horizontalMovement * Time.deltaTime, 0));
 
         if (jumping)
