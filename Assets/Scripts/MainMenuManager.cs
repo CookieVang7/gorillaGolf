@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private Button startGame;
+    [SerializeField] private Button courses;
     [SerializeField] private Button openCredits;
     [SerializeField] private Button closeCredits;
     [SerializeField] private GameObject creditsUI;
+    [SerializeField] private GameObject music;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,12 @@ public class MainMenuManager : MonoBehaviour
             () =>
             {
                 LoadingScreen.LoadScene("TutorialLevel");
+            });
+
+        courses.onClick.AddListener(
+            () =>
+            {
+                LoadingScreen.LoadScene("Courses");
             });
 
         openCredits.onClick.AddListener(
@@ -28,6 +36,10 @@ public class MainMenuManager : MonoBehaviour
             () => {
                 creditsUI.SetActive(false);
             });
+        if(MusicScript.numberOfMusic < 1)
+        {
+            Object.Instantiate(music);
+        }
     }
 
 

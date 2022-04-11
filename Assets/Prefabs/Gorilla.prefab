@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6165445998407194030}
   - component: {fileID: 7819369079050948540}
   - component: {fileID: -2700849520128449025}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Gorilla
-  m_TagString: Untagged
+  m_TagString: Gorilla
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   gorillaTransform: {fileID: 6165445998407194029}
   gorillaRigidbody: {fileID: 6165445998407194028}
   gorillaCollider: {fileID: 6165445998407194030}
-  mainSpriteRenderer: {fileID: 6165445998407194026}
+  ballCollider: {fileID: 0}
   moveSpeed: 5000
   wallJumpForce: 2200
   verticalJumpForce: 3500
@@ -112,6 +112,7 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 8
+  escMenu: {fileID: 0}
 --- !u!50 &6165445998407194028
 Rigidbody2D:
   serializedVersion: 4
@@ -131,7 +132,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &6165445998407194030
 BoxCollider2D:
@@ -361,7 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6165445998457830172}
   - component: {fileID: 6165445998457830175}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dumpy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

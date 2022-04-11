@@ -4,9 +4,11 @@
     {
         JoshLevel,
         TutorialLevel,
-        ConnerLevel2
+        ConnerLevel2,
+        SandLevel2,
+        SandLevel3
 
-    }
+}
 
     public static class ScenesExtensions
     {
@@ -20,6 +22,10 @@
                     return "TutorialLevel";
                 case Scenes.ConnerLevel2:
                     return "ConnerLevel2";
+                case Scenes.SandLevel2:
+                     return "SandLevel2";
+                case Scenes.SandLevel3:
+                   return "SandLevel3";
             default:
                     return "Scene Not Found";
             }

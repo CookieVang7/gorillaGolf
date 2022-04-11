@@ -60,24 +60,35 @@ public class GorillaController : MonoBehaviour
             jumping = true;
             haveJump = false;
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            escMenu.SetActive(true);
+        }
     }
 
     private void FixedUpdate()
     {
 
         //Debug.Log(horizontalMovement * Time.deltaTime); 
-     gorillaRigidbody.AddForce(new Vector2(horizontalMovement * Time.deltaTime, 0));
+        gorillaRigidbody.AddForce(new Vector2(horizontalMovement * Time.deltaTime, 0));
 
-        if(jumping)
+        if (jumping)
         {
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             GorillaWallJump(wallJumpForce);
             jumping = false;
         }
 
+        if (gorillaNoise.isPlaying) // play gorilla jump noise 
+        {
+            gorillaNoise.Stop();
+            gorillaNoise.Play();
+        }
 
     }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Ball"))
