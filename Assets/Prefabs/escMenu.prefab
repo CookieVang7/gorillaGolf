@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 8160692502255707335}
   - component: {fileID: 7974619263313824212}
   m_Layer: 5
-  m_Name: EscMenu
+  m_Name: escMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
