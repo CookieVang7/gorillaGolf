@@ -8988,9 +8988,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 572692138145297190, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -170
+      objectReference: {fileID: 0}
+    - target: {fileID: 572692138145297190, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -130
+      objectReference: {fileID: 0}
     - target: {fileID: 572692138979259174, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_text
-      value: You Beat The Game!
+      value: "Congratulations!!!\nYou have conquered gorilla golf. \nJosh is proud
+        of you"
+      objectReference: {fileID: 0}
+    - target: {fileID: 572692138979259174, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_fontSize
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 572692138979259174, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_margin.x
@@ -8998,15 +9011,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572692138979259174, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_margin.z
-      value: 1.3611679
+      value: -218.8558
+      objectReference: {fileID: 0}
+    - target: {fileID: 572692138979259174, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 572692138979259174, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 572692138979259175, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 47.6
+      value: -84
       objectReference: {fileID: 0}
     - target: {fileID: 572692138979259175, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 82
+      value: 131
+      objectReference: {fileID: 0}
+    - target: {fileID: 572692139319617548, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 572692139319617548, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -130
+      objectReference: {fileID: 0}
+    - target: {fileID: 572692139319617549, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_Name
+      value: mainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 572692139565485185, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_text
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 997957572522547407, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 997957572522547407, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
@@ -17535,6 +17580,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3826043961719570385, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
+    - target: {fileID: 3826043961719570385, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 357400752822368799, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
     - target: {fileID: 3826043962532460072, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
       propertyPath: m_Pivot.x
       value: 0

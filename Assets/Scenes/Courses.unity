@@ -1396,6 +1396,10 @@ MonoBehaviour:
   hole3: {fileID: 1449550960}
   hole4: {fileID: 70758394}
   hole5: {fileID: 2131821914}
+  hole6: {fileID: 1139473875}
+  hole7: {fileID: 466916134}
+  hole8: {fileID: 180605097}
+  hole9: {fileID: 1366741954}
 --- !u!1 &817879182
 GameObject:
   m_ObjectHideFlags: 0
