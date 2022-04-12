@@ -79,13 +79,16 @@ public class GorillaController : MonoBehaviour
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             GorillaWallJump(wallJumpForce);
             jumping = false;
+
+            if (gorillaNoise.isPlaying) // play gorilla jump noise 
+            {
+                gorillaNoise.Stop();
+                gorillaNoise.Play();
+            }
+            else gorillaNoise.Play();
         }
 
-        if (gorillaNoise.isPlaying) // play gorilla jump noise 
-        {
-            gorillaNoise.Stop();
-            gorillaNoise.Play();
-        }
+        
 
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -106,7 +109,7 @@ public class GorillaController : MonoBehaviour
         if (GorillaOnTheWall() && horizontalMovement != 0)
         {
 
-            Debug.Log("gorilla velocity is: " + gorillaRigidbody.velocity.y);
+            //Debug.Log("gorilla velocity is: " + gorillaRigidbody.velocity.y);
             gorillaRigidbody.velocity = new Vector2(gorillaRigidbody.velocity.x, Mathf.Clamp(gorillaRigidbody.velocity.y, -1f, 50f));
         }
     }

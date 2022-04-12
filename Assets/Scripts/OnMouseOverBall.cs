@@ -8,12 +8,12 @@ public class OnMouseOverBall : MonoBehaviour
     void OnMouseOver()
     {
         hittable = true;
-        Debug.Log(hittable);
+        //Debug.Log(hittable);
     }
 
     void OnMouseExit()
     {
         hittable = false;
-        Debug.Log(hittable);
+        //Debug.Log(hittable);
     }
 }

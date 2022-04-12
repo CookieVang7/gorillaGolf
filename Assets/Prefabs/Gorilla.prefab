@@ -109,8 +109,8 @@ MonoBehaviour:
   moveSpeed: 5000
   wallJumpForce: 2200
   verticalJumpForce: 3500
-  gorillaNoise: {fileID: 7819369079050948540}
-  gorillaStomp: {fileID: -2700849520128449025}
+  gorillaNoise: {fileID: -2700849520128449025}
+  gorillaStomp: {fileID: 7819369079050948540}
   wallLayer:
     serializedVersion: 2
     m_Bits: 8
