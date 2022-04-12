@@ -13,9 +13,12 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private int moveSpeed;
     private bool isOnGround;
     [SerializeField] private float wallJumpForce;
+    [SerializeField] private GameUI gameUI;
     [SerializeField] private float verticalJumpForce;
     [SerializeField] private AudioSource gorillaNoise; // jump sfx
     [SerializeField] private AudioSource gorillaStomp; // movement sfx
+    //[SerializeField] private DeathCounter deathCounter;
+    
 
     // New movement variables
     private float horizontalMovement;
@@ -115,6 +118,8 @@ public class GorillaController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("spike"))
         {
+            DeathCounter.IncrementDeathCount();
+            gameUI.UpdateDeathCount();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 

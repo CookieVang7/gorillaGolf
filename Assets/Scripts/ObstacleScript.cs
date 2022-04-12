@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ObstacleScript : MonoBehaviour
 {
+    //[SerializeField] private DeathCounter deathCounter;
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        DeathCounter.IncrementDeathCount();
 
         if (collision.gameObject.CompareTag("Gorilla"))
         {
