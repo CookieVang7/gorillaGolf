@@ -55,7 +55,7 @@ public class GorillaController : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown("w") && haveJump) // player jump
+        if ((Input.GetKeyDown("w") && haveJump) || (Input.GetKeyDown("space") && haveJump)) // player jump
         {
 
             jumping = true;
