@@ -32,18 +32,19 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private GameObject escMenu;
     void Start()
     {
-        rayCheckDistance =  gorillaCollider.bounds.extents.x + .1f;
-        boxCheckDistance = gorillaCollider.bounds.extents.y - .5f;
+        rayCheckDistance =  gorillaCollider.bounds.extents.x;
+        boxCheckDistance = gorillaCollider.bounds.extents.y - .3f;
         Physics2D.IgnoreCollision(ballCollider, gorillaCollider);
     }
     private static readonly int GORILLA_WALK = Animator.StringToHash("GorillaWalk");
     void Update()
     {
         // Ray casting / Box casting for conditionals like wall jumping and isOnGround checks
-        rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance, wallLayer);
+        rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance +.3f, wallLayer);
         leftRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
         downRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(0, -1)), boxCheckDistance, wallLayer);
-
+        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * (rayCheckDistance + .3f), Color.red);
+        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * rayCheckDistance, Color.red);
         if (downRay){
             isOnGround = true;
         } else isOnGround = false;
