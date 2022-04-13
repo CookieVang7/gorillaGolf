@@ -9,6 +9,7 @@ public class ObstacleScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         DeathCounter.IncrementDeathCount();
+        Debug.Log(DeathCounter.deathCount);
 
         if (collision.gameObject.CompareTag("Gorilla"))
         {
