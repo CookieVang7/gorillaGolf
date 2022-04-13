@@ -3220,6 +3220,10 @@ PrefabInstance:
       propertyPath: strokes
       value: 
       objectReference: {fileID: 150654045}
+    - target: {fileID: 572692137896552870, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: nextScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 572692137896552871, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3327,6 +3331,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3826043961719570385, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
+    - target: {fileID: 3826043961719570385, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -3338,6 +3346,10 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3826043961719570385, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 357400752822368799, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
     - target: {fileID: 3826043961719570385, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295

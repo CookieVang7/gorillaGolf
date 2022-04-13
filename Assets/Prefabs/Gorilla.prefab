@@ -110,8 +110,8 @@ MonoBehaviour:
   wallJumpForce: 2200
   gameUI: {fileID: 433822280081305720, guid: f968a16a0f92c164391e949b1050dacf, type: 3}
   verticalJumpForce: 3500
-  gorillaNoise: {fileID: 7819369079050948540}
-  gorillaStomp: {fileID: -2700849520128449025}
+  gorillaNoise: {fileID: -2700849520128449025}
+  gorillaStomp: {fileID: 7819369079050948540}
   wallLayer:
     serializedVersion: 2
     m_Bits: 8

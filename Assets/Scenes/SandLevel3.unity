@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 15966192}
     - target: {fileID: 572692137896552870, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: nextScene
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 572692137896552871, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_Pivot.x
@@ -4594,9 +4594,17 @@ PrefabInstance:
       value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 3826043961719570385, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
+    - target: {fileID: 3826043961719570385, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
       propertyPath: m_fontSizeBase
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 3826043961719570385, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 357400752822368799, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
     - target: {fileID: 3826043961719570390, guid: 9acd85bc4a599de4e9f7fbc3691d9554, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 32
