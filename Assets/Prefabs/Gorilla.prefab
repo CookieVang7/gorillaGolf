@@ -104,17 +104,18 @@ MonoBehaviour:
   gorillaTransform: {fileID: 6165445998407194029}
   gorillaRigidbody: {fileID: 6165445998407194028}
   gorillaCollider: {fileID: 6165445998407194030}
-  ballCollider: {fileID: 0}
+  ballCollider: {fileID: 4984983375655194659, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
   animator: {fileID: 2081586122007729356}
   moveSpeed: 5000
   wallJumpForce: 2200
+  gameUI: {fileID: 433822280081305720, guid: f968a16a0f92c164391e949b1050dacf, type: 3}
   verticalJumpForce: 3500
   gorillaNoise: {fileID: -2700849520128449025}
   gorillaStomp: {fileID: 7819369079050948540}
   wallLayer:
     serializedVersion: 2
     m_Bits: 8
-  escMenu: {fileID: 0}
+  escMenu: {fileID: 2840285704394917405, guid: 7abb039c480748248a6de88e50c57dbe, type: 3}
 --- !u!50 &6165445998407194028
 Rigidbody2D:
   serializedVersion: 4
