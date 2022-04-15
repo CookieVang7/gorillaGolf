@@ -23,7 +23,7 @@ public class FinalWinScreen : MonoBehaviour
         strokes.text = "Strokes: " + DragNShoot.hitCount;
         deaths.text = "Deaths: " + DeathCounter.deathCount;
         completedStrokes.text = "Total Completed Strokes: " + DeathCounter.totalCompletedStrokes;
-        incompleteStokes.text = "Total Uncompleted Strokes: " + DeathCounter.totalDeathStrokes;
+        incompleteStokes.text = "Total Strokes: " + DeathCounter.totalDeathStrokes;
     }
 }
 
