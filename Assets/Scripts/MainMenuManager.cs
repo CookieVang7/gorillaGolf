@@ -15,6 +15,7 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MusicScript.resetLevelBool();
         DeathCounter.deathCount = 0;
         DeathCounter.totalCompletedStrokes = 0;
         DeathCounter.totalDeathStrokes = 0;

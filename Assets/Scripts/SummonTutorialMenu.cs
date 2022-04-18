@@ -5,12 +5,18 @@ using UnityEngine;
 public class SummonTutorialMenu : MonoBehaviour
 {
     [SerializeField] private GameObject tutorialMenu;
+    [SerializeField] private bool alreadyAccessed;
     // Start is called before the first frame update
+    private void Start()
+    {
+        alreadyAccessed = false;
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Gorilla"))
+        if (collision.gameObject.CompareTag("Gorilla") && !alreadyAccessed)
         {
             tutorialMenu.SetActive(true);
+            alreadyAccessed = true;
         }
     }
 

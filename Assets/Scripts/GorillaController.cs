@@ -38,11 +38,14 @@ public class GorillaController : MonoBehaviour
         rayCheckDistance =  gorillaCollider.bounds.extents.x;
         boxCheckDistance = gorillaCollider.bounds.extents.y - .3f;
         Physics2D.IgnoreCollision(ballCollider, gorillaCollider);
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TutorialLevel")){
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TutorialLevel") && !MusicScript.firstTimeLevel1){
             GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(1);
+            MusicScript.firstTimeLevel1 = true;
         }
-                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("JungleLevel2")){
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("JungleLevel2") && !MusicScript.firstTimeLevel1)
+        {
             GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(2);
+            MusicScript.firstTimeLevel1 = true;
         }
     }
     private static readonly int GORILLA_WALK = Animator.StringToHash("GorillaWalk");

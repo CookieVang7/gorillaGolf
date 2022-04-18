@@ -6,10 +6,14 @@ using UnityEngine;
 public class MusicScript : MonoBehaviour
 {
     public static int numberOfMusic;
+    public static bool firstTimeLevel1;
+    public static bool firstTimeLevel4;
+    public static bool firstTimeLevel7;
     [SerializeField] public AudioClip[] soundtrack;
     // Start is called before the first frame update
     void Awake()
     {
+        resetLevelBool();
         numberOfMusic++;
         DontDestroyOnLoad(this.gameObject);       
     }
@@ -18,6 +22,13 @@ public class MusicScript : MonoBehaviour
         AudioSource audio = this.GetComponent<AudioSource>();
         audio.clip = soundtrack[n];
         audio.Play();
+    }
+
+    public static void resetLevelBool()
+    {
+        firstTimeLevel1 = false;
+        firstTimeLevel4 = false;
+        firstTimeLevel7 = false;
     }
 
     // Update is called once per frame
