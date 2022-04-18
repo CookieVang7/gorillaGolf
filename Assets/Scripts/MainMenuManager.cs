@@ -15,7 +15,6 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         DeathCounter.deathCount = 0;
         DeathCounter.totalCompletedStrokes = 0;
         DeathCounter.totalDeathStrokes = 0;
@@ -40,9 +39,10 @@ public class MainMenuManager : MonoBehaviour
             () => {
                 creditsUI.SetActive(false);
             });
+            
         if(MusicScript.numberOfMusic < 1)
         {
-            Object.Instantiate(music);
+            Object.Instantiate(music).GetComponent<MusicScript>().playTrack(0);;
         }
     }
 
