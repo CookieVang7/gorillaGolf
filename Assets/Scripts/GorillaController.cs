@@ -41,6 +41,9 @@ public class GorillaController : MonoBehaviour
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TutorialLevel")){
             GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(1);
         }
+                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("JungleLevel2")){
+            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(2);
+        }
     }
     private static readonly int GORILLA_WALK = Animator.StringToHash("GorillaWalk");
     void Update()
