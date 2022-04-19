@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button courses;
     [SerializeField] private Button openCredits;
     [SerializeField] private Button closeCredits;
+    [SerializeField] private Button challenge;
     [SerializeField] private GameObject creditsUI;
     [SerializeField] private GameObject music;
 
@@ -29,6 +30,11 @@ public class MainMenuManager : MonoBehaviour
             () =>
             {
                 LoadingScreen.LoadScene("Courses");
+            });
+        challenge.onClick.AddListener(
+            () =>
+            {
+                LoadingScreen.LoadScene("BenChallenge");
             });
 
         openCredits.onClick.AddListener(
