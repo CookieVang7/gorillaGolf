@@ -8039,7 +8039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572692137896552875, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 572692138145297190, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8051,8 +8051,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572692138979259174, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_text
-      value: "Congratulations!!!\nYou have conquered gorilla golf. \nJosh is proud
-        of you"
+      value: 'Congratulations!!!
+
+        You have conquered the challenge levels. '
       objectReference: {fileID: 0}
     - target: {fileID: 572692138979259174, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: m_fontSize
