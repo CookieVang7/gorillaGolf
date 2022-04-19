@@ -12,7 +12,8 @@
         SnowLevel2,
         JoshSnow,
         BenChallenge,
-        JoshChallenge
+        JoshChallenge,
+        LavaChallenge
 
 }
 
@@ -46,6 +47,8 @@
                     return "BenChallenge";
                 case Scenes.JoshChallenge:
                     return "JoshChallenge";
+                case Scenes.LavaChallenge:
+                    return "LavaChallenge";
 
             default:
                     return "Scene Not Found";
