@@ -7,6 +7,7 @@ public class GameUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text hitCountText;
     [SerializeField] private TMP_Text deathCountText;
+    [SerializeField] private TMP_Text timerText;
     // Start is called before the first frame update
     private void Start()
     {
@@ -21,6 +22,12 @@ public class GameUI : MonoBehaviour
     {
         Debug.Log(deathCountText.text);
         deathCountText.text = "Deaths: " + DeathCounter.deathCount;
+    }
+
+    private void Update()
+    {
+        Timer.currentTime += Time.deltaTime;
+        timerText.text = "" + (int)Timer.currentTime;
     }
 
 }
