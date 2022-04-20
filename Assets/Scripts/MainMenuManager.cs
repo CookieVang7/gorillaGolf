@@ -20,6 +20,7 @@ public class MainMenuManager : MonoBehaviour
         DeathCounter.deathCount = 0;
         DeathCounter.totalCompletedStrokes = 0;
         DeathCounter.totalDeathStrokes = 0;
+        Timer.currentTime = 0;
         startGame.onClick.AddListener(
             () =>
             {

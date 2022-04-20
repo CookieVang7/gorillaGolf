@@ -27,7 +27,11 @@ public class GameUI : MonoBehaviour
     private void Update()
     {
         Timer.currentTime += Time.deltaTime;
-        timerText.text = "" + (int)Timer.currentTime;
+        Timer.seconds = (int)(Timer.currentTime % 60);
+        Timer.minutes = (int)(Timer.currentTime / 60) % 60;
+        Timer.hours = (int)(Timer.currentTime / 3600) % 24;
+        string formattedTime = string.Format("{0:0}:{1:00}:{2:00}", Timer.hours, Timer.minutes, Timer.seconds);
+        timerText.text = formattedTime;
     }
 
 }
