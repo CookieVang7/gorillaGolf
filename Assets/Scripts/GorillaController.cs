@@ -35,7 +35,7 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private GameObject escMenu;
     void Start()
     {
-        rayCheckDistance =  gorillaCollider.bounds.extents.x;
+        rayCheckDistance =  gorillaCollider.bounds.extents.x + .5f;
         boxCheckDistance = gorillaCollider.bounds.extents.y - .3f;
         Physics2D.IgnoreCollision(ballCollider, gorillaCollider);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TutorialLevel") && !MusicScript.firstTimeLevel1){
@@ -57,6 +57,7 @@ public class GorillaController : MonoBehaviour
         downRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(0, -1)), boxCheckDistance, wallLayer);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * (rayCheckDistance + .3f), Color.red);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * rayCheckDistance, Color.red);
+
         if (downRay){
             isOnGround = true;
         } else isOnGround = false;
@@ -67,11 +68,11 @@ public class GorillaController : MonoBehaviour
 
         
 
-        if ((Input.GetKeyDown("w") && haveJump) || (Input.GetKeyDown("space") && haveJump)) // player jump
+        if ((Input.GetKeyDown("w")) && (rightRay || leftRay || downRay) || (Input.GetKeyDown("space") && (rightRay || leftRay || downRay))) // player jump
         {
 
             jumping = true;
-            haveJump = false;
+            StartCoroutine(jumpBuffer()); 
         }
 
 
@@ -86,11 +87,12 @@ public class GorillaController : MonoBehaviour
     {
         gorillaRigidbody.AddForce(new Vector2(horizontalMovement * Time.deltaTime, 0));
 
-        if (jumping)
+        if (jumping && haveJump)
         {
             gorillaRigidbody.AddForce(new Vector2(0, verticalJumpForce));
             GorillaWallJump(wallJumpForce);
             jumping = false;
+            haveJump = false;
 
             if (gorillaNoise.isPlaying) // play gorilla jump noise 
             {
@@ -158,5 +160,9 @@ public class GorillaController : MonoBehaviour
         return isOnWall;
     }
 
-
+    IEnumerator jumpBuffer()
+    {
+        yield return new WaitForSeconds(.2f);
+        jumping = false;
+    }
 }
