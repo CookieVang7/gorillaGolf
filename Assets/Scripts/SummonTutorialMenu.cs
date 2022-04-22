@@ -6,6 +6,7 @@ public class SummonTutorialMenu : MonoBehaviour
 {
     [SerializeField] private GameObject tutorialMenu;
     [SerializeField] private bool alreadyAccessed;
+    [SerializeField] private GameObject wall;
     // Start is called before the first frame update
     private void Start()
     {
@@ -17,6 +18,10 @@ public class SummonTutorialMenu : MonoBehaviour
         {
             tutorialMenu.SetActive(true);
             alreadyAccessed = true;
+        }
+        if (wall != null && collision.gameObject.CompareTag("Gorilla"))
+        {
+            wall.SetActive(true);
         }
     }
 

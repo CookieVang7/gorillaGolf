@@ -30,12 +30,14 @@ public class GorillaController : MonoBehaviour
     private float boxCheckDistance;
     public LayerMask wallLayer;
     private RaycastHit2D rightRay;
+    private RaycastHit2D bufferRightRay;
     private RaycastHit2D leftRay;
+    private RaycastHit2D bufferLeftRay;
     private RaycastHit2D downRay;
     [SerializeField] private GameObject escMenu;
     void Start()
     {
-        rayCheckDistance =  gorillaCollider.bounds.extents.x + .5f;
+        rayCheckDistance =  gorillaCollider.bounds.extents.x;
         boxCheckDistance = gorillaCollider.bounds.extents.y - .3f;
         Physics2D.IgnoreCollision(ballCollider, gorillaCollider);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TutorialLevel") && !MusicScript.firstTimeLevel1){
@@ -53,8 +55,10 @@ public class GorillaController : MonoBehaviour
     {
         // Ray casting / Box casting for conditionals like wall jumping and isOnGround checks
         rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance +.3f, wallLayer);
+        bufferRightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance + .8f);
         leftRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance, wallLayer);
-        downRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(0, -1)), boxCheckDistance, wallLayer);
+        bufferLeftRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)), rayCheckDistance + .5f);
+        downRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(0, -1)), boxCheckDistance);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * (rayCheckDistance + .3f), Color.red);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * rayCheckDistance, Color.red);
 
@@ -68,7 +72,7 @@ public class GorillaController : MonoBehaviour
 
         
 
-        if ((Input.GetKeyDown("w")) && (rightRay || leftRay || downRay) || (Input.GetKeyDown("space") && (rightRay || leftRay || downRay))) // player jump
+        if ((Input.GetKeyDown("w")) && (bufferRightRay || bufferLeftRay || downRay) || (Input.GetKeyDown("space") && (bufferRightRay || bufferLeftRay || downRay))) // player jump
         {
 
             jumping = true;
