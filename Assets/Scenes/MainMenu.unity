@@ -395,7 +395,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Created By:\nBen B, Conner H, Cookie V, \nand the one and only \nJosh
-    Eklund\n\nMusic From: Ezra Olson"
+    Eklund\n\nMusic From: \nEzra Olson\nCJ Gilbert"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
   m_sharedMaterial: {fileID: 357400752822368799, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
@@ -1179,7 +1179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1335050121
 RectTransform:
   m_ObjectHideFlags: 0
