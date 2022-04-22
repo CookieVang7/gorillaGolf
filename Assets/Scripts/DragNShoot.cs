@@ -21,17 +21,27 @@ public class DragNShoot : MonoBehaviour
     Vector3 startPoint;
     TrajectoryLine tl;
     Camera cam;
+    static public bool closeToBall;
 
     private void Start() {
         cam = FindObjectOfType<Camera>();
         tl = GetComponent<TrajectoryLine>();
         hitCount = 0;
+        closeToBall = false;
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0) && OnMouseOverBall.hittable && Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla) {
+        if (Input.GetMouseButtonDown(0) && OnMouseOverBall.hittable && Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla)
+        {
             hittable2 = true;
-       }
+        }
+        
+
+        if (Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla)
+        {
+            closeToBall = true;
+        }
+        else closeToBall = false;
 
         if (Input.GetMouseButton(0) && hittable2) {
             var mousePosition = Input.mousePosition;
