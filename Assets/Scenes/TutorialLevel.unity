@@ -22411,8 +22411,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.641785, y: -136.35652}
-  m_SizeDelta: {x: 1105.2837, y: 206.7131}
+  m_AnchoredPosition: {x: 33.216, y: -133.66344}
+  m_SizeDelta: {x: 1105.2837, y: 267.3199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787738965
 MonoBehaviour:
@@ -22440,8 +22440,8 @@ MonoBehaviour:
     the direction you want the ball to go! Although, beware of hitting the ball into
     the water, because the gorilla can't swim and he only has one ball!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
+  m_sharedMaterial: {fileID: 357400752822368799, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25178,7 +25178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &6526381153479055195
 GameObject:
   m_ObjectHideFlags: 0
