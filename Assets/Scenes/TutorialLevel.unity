@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraTransform: {fileID: 151290309}
-  cameraX: 81.4
+  cameraX: 114.7
   cameraY: 1.4
   cameraZ: -31.4
 --- !u!61 &398775040
@@ -25178,7 +25178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &6526381153479055195
 GameObject:
   m_ObjectHideFlags: 0
