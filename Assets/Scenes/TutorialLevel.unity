@@ -1419,7 +1419,7 @@ GameObject:
   - component: {fileID: 504236356}
   - component: {fileID: 504236355}
   - component: {fileID: 504236354}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WallBounds2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3396,7 +3396,7 @@ GameObject:
   - component: {fileID: 1275263505}
   - component: {fileID: 1275263504}
   - component: {fileID: 1275263503}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WallBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22779,7 +22779,7 @@ GameObject:
   - component: {fileID: 2000637046}
   - component: {fileID: 2000637045}
   - component: {fileID: 2000637044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WallBounds3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
