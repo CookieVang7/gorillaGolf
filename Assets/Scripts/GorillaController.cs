@@ -47,15 +47,7 @@ public class GorillaController : MonoBehaviour
         Physics2D.IgnoreCollision(ballCollider, gorillaCollider);
 
         //This is a check for each level to see if the music needs to change at the start
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TutorialLeve2") && !MusicScript.firstTimeLevel2){
-            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(1);
-            MusicScript.firstTimeLevel2 = true;
-        }
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("JungleLevel2") && !MusicScript.firstTimeLevel4)
-        {
-            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(2);
-            MusicScript.firstTimeLevel4 = true;
-        }
+        MusicScript.setMusic();
     }
     private static readonly int GORILLA_WALK = Animator.StringToHash("GorillaWalk");
     void Update()

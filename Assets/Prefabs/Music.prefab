@@ -143,4 +143,8 @@ MonoBehaviour:
   soundtrack:
   - {fileID: 8300000, guid: 0179c9287c50a1e40b96b838052f7b84, type: 3}
   - {fileID: 8300000, guid: a14b6b3259a0c5f42a91ccd9e451639e, type: 3}
+  - {fileID: 8300000, guid: 0af33610c52ec724e89b69399909e028, type: 3}
+  - {fileID: 8300000, guid: fc54d2778a133af448293d01aa7adcaa, type: 3}
   - {fileID: 8300000, guid: ef0af555ce36de64f9056b779ee50aa5, type: 3}
+  - {fileID: 8300000, guid: 987d24512d899e94f95cd325ea729156, type: 3}
+  - {fileID: 8300000, guid: 0af33610c52ec724e89b69399909e028, type: 3}

@@ -9,6 +9,7 @@ public class MusicScript : MonoBehaviour
     public static bool firstTimeLevel2;
     public static bool firstTimeLevel4;
     public static bool firstTimeLevel7;
+    public static bool firstTimeChallenge;
     [SerializeField] public AudioClip[] soundtrack;
     // Start is called before the first frame update
     void Awake()
@@ -29,6 +30,26 @@ public class MusicScript : MonoBehaviour
         firstTimeLevel2 = false;
         firstTimeLevel4 = false;
         firstTimeLevel7 = false;
+        firstTimeChallenge = false;
+    }
+
+    public static void setMusic() 
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("TutorialLeve2") && !MusicScript.firstTimeLevel2)
+        {
+            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(1);
+            MusicScript.firstTimeLevel2 = true;
+        }
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandLevel1") && !MusicScript.firstTimeLevel4)
+        {
+            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(2);
+            MusicScript.firstTimeLevel4 = true;
+        }
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("BenChallenge") && !MusicScript.firstTimeChallenge)
+        {
+            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(5);
+            MusicScript.firstTimeChallenge = true;
+        }
     }
 
     // Update is called once per frame
