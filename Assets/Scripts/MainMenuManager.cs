@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button courses;
     [SerializeField] private Button openCredits;
     [SerializeField] private Button closeCredits;
+    [SerializeField] private Button challenge;
     [SerializeField] private GameObject creditsUI;
     [SerializeField] private GameObject music;
 
@@ -19,6 +20,7 @@ public class MainMenuManager : MonoBehaviour
         DeathCounter.deathCount = 0;
         DeathCounter.totalCompletedStrokes = 0;
         DeathCounter.totalDeathStrokes = 0;
+        Timer.currentTime = 0;
         startGame.onClick.AddListener(
             () =>
             {
@@ -29,6 +31,11 @@ public class MainMenuManager : MonoBehaviour
             () =>
             {
                 LoadingScreen.LoadScene("Courses");
+            });
+        challenge.onClick.AddListener(
+            () =>
+            {
+                LoadingScreen.LoadScene("BenChallenge");
             });
 
         openCredits.onClick.AddListener(
