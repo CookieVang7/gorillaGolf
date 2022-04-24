@@ -51,7 +51,7 @@ public class MainMenuManager : MonoBehaviour
         {
             Object.Instantiate(music).GetComponent<MusicScript>().playTrack(0);;
         }
-        MusicScript.setMusic();
+        GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
     }
 
 

@@ -6,10 +6,10 @@ using UnityEngine;
 public class MusicScript : MonoBehaviour
 {
     public static int numberOfMusic;
-    private static bool firtimeJungle;
-    private static bool firstTimeSand;
-    private static bool firstTimeSnow;
-    private static bool firstTimeChallenge;
+    private bool firtimeJungle;
+    private bool firstTimeSand;
+    private bool firstTimeSnow;
+    private bool firstTimeChallenge;
     [SerializeField] public AudioClip[] soundtrack;
     // Start is called before the first frame update
     void Awake()
@@ -25,7 +25,7 @@ public class MusicScript : MonoBehaviour
         audio.Play();
     }
 
-    public static void resetLevelBool()
+    public void resetLevelBool()
     {
         firtimeJungle = false;
         firstTimeSand = false;
@@ -33,52 +33,38 @@ public class MusicScript : MonoBehaviour
         firstTimeChallenge = false;
     }
 
-    public static void setMusic() 
+    public void setMusic() 
     {
         string nameOfScene = SceneManager.GetActiveScene().name;
+        MusicScript musicPlayer = GameObject.Find("Music(Clone)").GetComponent<MusicScript>();
 
         if (nameOfScene == "MainMenu"){
-            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(0);
+            musicPlayer.playTrack(0);
             resetLevelBool();
         }
-        if ((nameOfScene == "JungleLevel2" || nameOfScene == "JungleLevel3") && !MusicScript.firtimeJungle)
+        if ((nameOfScene == "JungleLevel2" || nameOfScene == "JungleLevel3") && !this.firtimeJungle)
         {
-            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(1);
-            MusicScript.firtimeJungle = true;
+            musicPlayer.playTrack(1);
+            this.firtimeJungle = true;
         }
 
-        if ((nameOfScene == "SandLevel1" || nameOfScene == "SandLevel2" || nameOfScene == "SandLevel3") && !MusicScript.firstTimeSand)
+        if ((nameOfScene == "SandLevel1" || nameOfScene == "SandLevel2" || nameOfScene == "SandLevel3") && !this.firstTimeSand)
         {
-            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(2);
-            MusicScript.firstTimeSand = true;
+            musicPlayer.playTrack(2);
+            this.firstTimeSand = true;
         }
 
-        if ((nameOfScene == "SnowLevel1" || nameOfScene == "SnowLevel2" || nameOfScene == "JoshSnow") && !MusicScript.firstTimeSnow)
+        if ((nameOfScene == "SnowLevel1" || nameOfScene == "SnowLevel2" || nameOfScene == "JoshSnow") && !this.firstTimeSnow)
         {
-            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(3);
-            MusicScript.firstTimeSnow = true;
+            musicPlayer.playTrack(3);
+            this.firstTimeSnow = true;
         }
 
 
-        if ((nameOfScene == "BenChallenge" || nameOfScene == "JoshChallenge" || nameOfScene == "LavaChallenge") && !MusicScript.firstTimeChallenge)
+        if ((nameOfScene == "BenChallenge" || nameOfScene == "JoshChallenge" || nameOfScene == "LavaChallenge") && !this.firstTimeChallenge)
         {
-            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(5);
-            MusicScript.firstTimeChallenge = true;
+            musicPlayer.playTrack(5);
+            this.firstTimeChallenge = true;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Debug.Log(Application.loadedLevelName);
-        // AudioSource audio = this.GetComponent<AudioSource>();
-        // if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu")) {
-        //      audio.clip = soundtrack[0];
-        //      audio.Play();
-        //  } else {
-        //     audio.clip = soundtrack[1];
-        //      audio.Play();
-        //  }
-        
     }
 }
