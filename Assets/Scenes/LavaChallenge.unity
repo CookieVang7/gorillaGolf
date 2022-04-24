@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 572692137896552870, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
+      propertyPath: gameUI
+      value: 
+      objectReference: {fileID: 45411208}
+    - target: {fileID: 572692137896552870, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
       propertyPath: strokes
       value: 
       objectReference: {fileID: 1507045039}
@@ -257,6 +261,10 @@ PrefabInstance:
     - target: {fileID: 433822279268415877, guid: f968a16a0f92c164391e949b1050dacf, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -7.6099854
+      objectReference: {fileID: 0}
+    - target: {fileID: 433822280081305720, guid: f968a16a0f92c164391e949b1050dacf, type: 3}
+      propertyPath: par
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 433822280081305723, guid: f968a16a0f92c164391e949b1050dacf, type: 3}
       propertyPath: m_Pivot.x
