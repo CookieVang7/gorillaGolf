@@ -127,10 +127,8 @@ public class GorillaController : MonoBehaviour
             }
             else gorillaNoise.Play();
         }
-
-        
-
     }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         // Makes it so the gorilla gets a jump reset everytime his collider comes into contact with anything

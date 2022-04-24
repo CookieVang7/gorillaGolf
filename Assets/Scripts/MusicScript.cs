@@ -42,7 +42,7 @@ public class MusicScript : MonoBehaviour
             musicPlayer.playTrack(0);
             resetLevelBool();
         }
-        if ((nameOfScene == "JungleLevel2" || nameOfScene == "JungleLevel3") && !this.firtimeJungle)
+        if ((nameOfScene == "TutorialLevel" || nameOfScene == "JungleLevel2" || nameOfScene == "JungleLevel3") && !this.firtimeJungle)
         {
             musicPlayer.playTrack(1);
             this.firtimeJungle = true;
@@ -59,7 +59,6 @@ public class MusicScript : MonoBehaviour
             musicPlayer.playTrack(3);
             this.firstTimeSnow = true;
         }
-
 
         if ((nameOfScene == "BenChallenge" || nameOfScene == "JoshChallenge" || nameOfScene == "LavaChallenge") && !this.firstTimeChallenge)
         {
