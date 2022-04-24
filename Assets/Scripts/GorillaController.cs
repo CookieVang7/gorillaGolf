@@ -24,6 +24,7 @@ public class GorillaController : MonoBehaviour
     private float horizontalMovement;
     private bool haveJump = true;
     private bool jumping = false;
+    private bool horizontalInput = true;
 
     // rayCasting instances / variables
     private float rayCheckDistance; // Created on start()
@@ -80,11 +81,15 @@ public class GorillaController : MonoBehaviour
         // This sets a variable to help create velocity under fixedUpdate to move the gorilla in a specified direction
         // It specifies the direction with Input.GetAxisRaw("Horizontal"), which equals -1 when inputting to the left (key: a)
         // and equals 1 when inputting to the right (key: d)
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        horizontalMovement = horizontal * moveSpeed;
+        if (horizontalInput) {
+            //float horizontal = Input.GetAxisRaw("Horizontal");
+            horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        }
+        //float horizontal = Input.GetAxisRaw("Horizontal");
+        //horizontalMovement = horizontal * moveSpeed;
 
         // This toggles our gorilla walk animation when the horizontal variable is either -1 or 1 (meaning they are moving)
-        animator.SetBool(GORILLA_WALK, horizontal > 0 || horizontal < 0);
+        animator.SetBool(GORILLA_WALK, horizontalMovement > 0 || horizontalMovement < 0);
 
         
         // This dictates the jump keys (space and w) and also checks to see if the bufferRays are within range
@@ -180,8 +185,12 @@ public class GorillaController : MonoBehaviour
         private void GorillaWallJump(float wallJumpForce){
         if(rightRay && !isOnGround) {
             gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
+            horizontalInput = false;
+            StartCoroutine(wallJumpBuffer()); 
         } else if (leftRay && !isOnGround) {
             gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
+            horizontalInput = false;
+            StartCoroutine(wallJumpBuffer()); 
         }
     }
     // Helps identify if the gorilla is just on a wall
@@ -198,5 +207,12 @@ public class GorillaController : MonoBehaviour
     {
         yield return new WaitForSeconds(.2f);
         jumping = false;
+    }
+
+    IEnumerator wallJumpBuffer()
+    {
+        horizontalMovement = 0f;
+        yield return new WaitForSeconds(.2f);
+        horizontalInput = true;
     }
 }
