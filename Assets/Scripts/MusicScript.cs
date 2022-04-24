@@ -6,7 +6,7 @@ using UnityEngine;
 public class MusicScript : MonoBehaviour
 {
     public static int numberOfMusic;
-    public static bool firstTimeLevel1;
+    public static bool firstTimeLevel2;
     public static bool firstTimeLevel4;
     public static bool firstTimeLevel7;
     [SerializeField] public AudioClip[] soundtrack;
@@ -26,7 +26,7 @@ public class MusicScript : MonoBehaviour
 
     public static void resetLevelBool()
     {
-        firstTimeLevel1 = false;
+        firstTimeLevel2 = false;
         firstTimeLevel4 = false;
         firstTimeLevel7 = false;
     }
