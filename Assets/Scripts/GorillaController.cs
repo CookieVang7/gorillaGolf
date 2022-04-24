@@ -29,6 +29,7 @@ public class GorillaController : MonoBehaviour
     // rayCasting instances / variables
     private float rayCheckDistance; // Created on start()
     private float boxCheckDistance;
+    private float forcedDirection;
     public LayerMask wallLayer;
     private RaycastHit2D rightRay;
     private RaycastHit2D bufferRightRay;
@@ -84,6 +85,8 @@ public class GorillaController : MonoBehaviour
         if (horizontalInput) {
             //float horizontal = Input.GetAxisRaw("Horizontal");
             horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        } else {
+            horizontalMovement = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), 0, forcedDirection) * moveSpeed;
         }
         //float horizontal = Input.GetAxisRaw("Horizontal");
         //horizontalMovement = horizontal * moveSpeed;
@@ -186,11 +189,11 @@ public class GorillaController : MonoBehaviour
         if(rightRay && !isOnGround) {
             gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
             horizontalInput = false;
-            StartCoroutine(wallJumpBuffer()); 
+            StartCoroutine(wallJumpBuffer(-1)); 
         } else if (leftRay && !isOnGround) {
             gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
             horizontalInput = false;
-            StartCoroutine(wallJumpBuffer()); 
+            StartCoroutine(wallJumpBuffer(1)); 
         }
     }
     // Helps identify if the gorilla is just on a wall
@@ -209,9 +212,9 @@ public class GorillaController : MonoBehaviour
         jumping = false;
     }
 
-    IEnumerator wallJumpBuffer()
+    IEnumerator wallJumpBuffer(int direction)
     {
-        horizontalMovement = 0f;
+        forcedDirection = direction;
         yield return new WaitForSeconds(.2f);
         horizontalInput = true;
     }
