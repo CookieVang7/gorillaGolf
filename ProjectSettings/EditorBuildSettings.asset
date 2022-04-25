@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/PlatformingTesting.unity
-    guid: 614c9ec059fadaf4bae16f35d25899e0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: a864545994414a8499496d4f27da0392
@@ -26,14 +26,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SandLevel2.unity
     guid: d8e5a5650b73c114ab7491ed985dda36
-  - enabled: 1
-    path: Assets/Scenes/SandLevel3.unity
-    guid: 39945e377dd551247acd40c21140e0bf
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Courses.unity
     guid: 681f3a1f8296b4c43b8963cb69afadaa
   - enabled: 0
-    path: 
+    path: Assets/Scenes/SandLevel3.unity
     guid: b84f6c2d4dbbd1b439ab3eb37ba09113
   - enabled: 1
     path: Assets/Scenes/SnowLevel1.unity
