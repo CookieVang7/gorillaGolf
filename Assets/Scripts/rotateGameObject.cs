@@ -8,6 +8,7 @@ using UnityEngine;
 public class rotateGameObject : MonoBehaviour
 {
     [SerializeField] private bool rotatingTowardStart = false;
+    [SerializeField] private float rotationSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class rotateGameObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localEulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, Mathf.PingPong(Time.time * 20, 90) - 90);
+        transform.localEulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, Mathf.PingPong(Time.time * rotationSpeed, 90) - 90);
         Debug.Log(transform.rotation.z);
     }
 }
