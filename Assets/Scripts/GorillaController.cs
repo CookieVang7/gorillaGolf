@@ -18,7 +18,7 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private AudioSource gorillaNoise; // jump sfx
     [SerializeField] private AudioSource gorillaStomp; // movement sfx
     //[SerializeField] private DeathCounter deathCounter;
-    
+
 
     // New movement variables
     private float horizontalMovement;
@@ -35,6 +35,8 @@ public class GorillaController : MonoBehaviour
     private RaycastHit2D bufferLeftRay;
     private RaycastHit2D downRay;
     [SerializeField] private GameObject escMenu;
+
+
     void Start()
     {
         // This sets the variables to be approximately the length of half the gorilla collider with some adjustments
@@ -46,8 +48,12 @@ public class GorillaController : MonoBehaviour
 
         //This is a check for each level to see if the music needs to change at the start
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
+       
+
     }
     private static readonly int GORILLA_WALK = Animator.StringToHash("GorillaWalk");
+    private static readonly int GORILLA_LEFTJUMP = Animator.StringToHash("GorillaWallLeft");
+    private static readonly int GORILLA_RIGHTJUMP = Animator.StringToHash("GorillaWallRight");
     void Update()
     {
         // Ray casting / Box casting for conditionals like wall jumping and isOnGround checks
@@ -73,13 +79,15 @@ public class GorillaController : MonoBehaviour
         // It specifies the direction with Input.GetAxisRaw("Horizontal"), which equals -1 when inputting to the left (key: a)
         // and equals 1 when inputting to the right (key: d)
         horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        //float horizontal = Input.GetAxisRaw("Horizontal");
+        float horizontal = Input.GetAxisRaw("Horizontal");
         //horizontalMovement = horizontal * moveSpeed;
 
         // This toggles our gorilla walk animation when the horizontal variable is either -1 or 1 (meaning they are moving)
-        animator.SetBool(GORILLA_WALK, horizontalMovement > 0 || horizontalMovement < 0);
+        animator.SetBool(GORILLA_WALK, ( horizontal > 0 || horizontal < 0) && downRay) ;
+        animator.SetBool(GORILLA_LEFTJUMP, bufferLeftRay && !downRay);
+        animator.SetBool(GORILLA_RIGHTJUMP, bufferRightRay && !downRay);
 
-        
+
         // This dictates the jump keys (space and w) and also checks to see if the bufferRays are within range
         // If the buffer rays are within range it will activate the "jumping" bool which will activate a jump
         // as soon as the corresponding "haveJump" bool is true. This makes it so the wall jumping / jumping input
@@ -96,6 +104,21 @@ public class GorillaController : MonoBehaviour
             Time.timeScale = 0;
             escMenu.SetActive(true);
         }
+
+        if (DragNShoot.closeToBall)
+        {
+            //Debug.Log("Please god work");
+           
+            animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 1);
+            animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 0);
+        }
+        else
+        {
+            animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 0);
+            animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 1);
+        }
+
+        //animationScript.updateAnimation(gorillaSprite, animator);
     }
 
     private void FixedUpdate()
