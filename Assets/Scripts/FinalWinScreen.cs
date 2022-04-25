@@ -17,6 +17,7 @@ public class FinalWinScreen : MonoBehaviour
     [SerializeField] private GameUI gameUI;
     void Start()
     {
+        GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(0);
         Time.timeScale = 0;
         nextLevel.onClick.AddListener(() =>
         {

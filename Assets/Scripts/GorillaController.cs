@@ -11,7 +11,6 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private Collider2D ballCollider;
     [SerializeField] private Animator animator;
     [SerializeField] private int moveSpeed;
-    private bool isOnGround;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private GameUI gameUI;
     [SerializeField] private float verticalJumpForce;
@@ -55,7 +54,7 @@ public class GorillaController : MonoBehaviour
     private static readonly int GORILLA_RIGHTJUMP = Animator.StringToHash("GorillaWallRight");
     void Update()
     {
-        // Ray casting / Box casting for conditionals like wall jumping and isOnGround checks
+        // Ray casting / Box casting for conditionals like wall jumping and checking if the gorilla is on the ground
         // Ray casting casts a ray from a specified location to a specified direction/length and if an object collids with it, it becomes true
         rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance +.3f, wallLayer);
         bufferRightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance + 1);
@@ -67,12 +66,6 @@ public class GorillaController : MonoBehaviour
         // Current: Checking the buffer ray lengths
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * (rayCheckDistance + 1), Color.red);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * (rayCheckDistance + .7f), Color.red);
-
-        // This uses the downray to toggle a boolean variable that tells us if the gorilla is on the ground
-        // This is mostly used for making sure the gorilla does not wall jump while also touching the ground
-        if (downRay){
-            isOnGround = true;
-        } else isOnGround = false;
 
         // This sets a variable to help create velocity under fixedUpdate to move the gorilla in a specified direction
         // It specifies the direction with Input.GetAxisRaw("Horizontal"), which equals -1 when inputting to the left (key: a)
@@ -196,9 +189,9 @@ public class GorillaController : MonoBehaviour
     // Method used in fixedUpdate() to help decide if the gorilla should be wall jumping instead
     // of vertical jumping
         private void GorillaWallJump(float wallJumpForce){
-        if(rightRay && !isOnGround) {
+        if(rightRay && !downRay) {
             gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
-        } else if (leftRay && !isOnGround) {
+        } else if (leftRay && !downRay) {
             gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
         }
     }
