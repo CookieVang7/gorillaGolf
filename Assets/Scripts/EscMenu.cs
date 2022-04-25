@@ -58,7 +58,9 @@ public class EscMenu : MonoBehaviour
 
         restart.onClick.AddListener( //want to restart level?
             () => {
-                confirmRestart.SetActive(true);
+                //confirmRestart.SetActive(true);
+                Time.timeScale = 1;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             });
 
         yesRestart.onClick.AddListener(() => {

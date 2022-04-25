@@ -48,7 +48,7 @@ public class GorillaController : MonoBehaviour
 
         //This is a check for each level to see if the music needs to change at the start
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
-       
+        
 
     }
     private static readonly int GORILLA_WALK = Animator.StringToHash("GorillaWalk");
@@ -105,12 +105,18 @@ public class GorillaController : MonoBehaviour
             escMenu.SetActive(true);
         }
 
+        if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
         if (DragNShoot.closeToBall)
         {
             //Debug.Log("Please god work");
            
             animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 1);
             animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 0);
+            
         }
         else
         {
