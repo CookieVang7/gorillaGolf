@@ -8,10 +8,14 @@ public class GameUI : MonoBehaviour
     [SerializeField] private TMP_Text hitCountText;
     [SerializeField] private TMP_Text deathCountText;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private TMP_Text parText;
+    [SerializeField] private int par;
     // Start is called before the first frame update
     private void Start()
     {
         deathCountText.text = "Deaths: " + DeathCounter.deathCount;
+        parText.text = "Par: " + par;
+
     }
     public void UpdateHitCount(int count)
     {
@@ -32,6 +36,10 @@ public class GameUI : MonoBehaviour
         Timer.hours = (int)(Timer.currentTime / 3600) % 24;
         string formattedTime = string.Format("{0:0}:{1:00}:{2:00}", Timer.hours, Timer.minutes, Timer.seconds);
         timerText.text = formattedTime;
+    }
+
+    public int getPar() {
+        return par;
     }
 
 }
