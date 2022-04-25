@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
-    public static int numberOfMusic;
     private bool firtimeJungle;
     private bool firstTimeSand;
     private bool firstTimeSnow;
@@ -15,7 +14,7 @@ public class MusicScript : MonoBehaviour
     void Awake()
     {
         resetLevelBool();
-        numberOfMusic++;
+        Counter.numberOfMusic++;
         DontDestroyOnLoad(this.gameObject);       
     }
 

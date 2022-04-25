@@ -45,17 +45,10 @@ public class MainMenuManager : MonoBehaviour
                 creditsUI.SetActive(false);
             });
             
-        if(MusicScript.numberOfMusic < 1)
+        if(Counter.numberOfMusic < 1)
         {
             Object.Instantiate(music).GetComponent<MusicScript>().playTrack(0);;
         }
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

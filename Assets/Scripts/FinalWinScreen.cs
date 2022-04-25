@@ -18,7 +18,6 @@ public class FinalWinScreen : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
-        DeathCounter.totalCompletedStrokes = DeathCounter.totalCompletedStrokes + Counter.hitCount;
         nextLevel.onClick.AddListener(() =>
         {
             Time.timeScale = 1;

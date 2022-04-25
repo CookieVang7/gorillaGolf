@@ -64,7 +64,6 @@ public class DragNShoot : MonoBehaviour
             hittable2 = false;
             Counter.hitCount++;
             gameUI.UpdateHitCount(Counter.hitCount);
-            DeathCounter.totalDeathStrokes++;
       }
    }
 }

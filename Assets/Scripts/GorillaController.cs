@@ -17,7 +17,6 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private float verticalJumpForce;
     [SerializeField] private AudioSource gorillaNoise; // jump sfx
     [SerializeField] private AudioSource gorillaStomp; // movement sfx
-    //[SerializeField] private DeathCounter deathCounter;
 
 
     // New movement variables
