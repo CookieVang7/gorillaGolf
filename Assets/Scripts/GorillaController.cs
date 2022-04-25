@@ -104,14 +104,15 @@ public class GorillaController : MonoBehaviour
             escMenu.SetActive(true);
         }
 
+        // This is the reset button
         if (Input.GetKeyDown("r"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
+        // This changes the animation layer when the Gorilla is close enough to the ball
         if (DragNShoot.closeToBall)
         {
-            //Debug.Log("Please god work");
            
             animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 1);
             animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 0);
@@ -122,8 +123,6 @@ public class GorillaController : MonoBehaviour
             animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 0);
             animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 1);
         }
-
-        //animationScript.updateAnimation(gorillaSprite, animator);
     }
 
     private void FixedUpdate()
