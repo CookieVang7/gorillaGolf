@@ -16,8 +16,18 @@ public class WinScreen : MonoBehaviour
     [SerializeField] private GameUI gameUI;
     void Start()
     {
-        nextLevel.onClick.AddListener(() => LoadingScreen.LoadScene(nextScene.Name()));
-        replay.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+        Time.timeScale = 0;
+        nextLevel.onClick.AddListener(() => {
+
+            LoadingScreen.LoadScene(nextScene.Name());
+            Time.timeScale = 1;
+
+        });
+        replay.onClick.AddListener(() => {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            });
+
         strokes.text = "Strokes: " + DragNShoot.hitCount;
         par.text = "Par: " + gameUI.getPar();
         int score = DragNShoot.hitCount - gameUI.getPar();

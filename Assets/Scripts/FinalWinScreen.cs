@@ -19,9 +19,19 @@ public class FinalWinScreen : MonoBehaviour
     [SerializeField] private GameUI gameUI;
     void Start()
     {
+        Time.timeScale = 0;
         DeathCounter.totalCompletedStrokes = DeathCounter.totalCompletedStrokes + DragNShoot.hitCount;
-        nextLevel.onClick.AddListener(() => LoadingScreen.LoadScene(nextScene.Name()));
-        replay.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+        nextLevel.onClick.AddListener(() =>
+        {
+            Time.timeScale = 1;
+            LoadingScreen.LoadScene(nextScene.Name());
+        });
+     
+        replay.onClick.AddListener(() => {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            });
+
         strokes.text = "Strokes: " + DragNShoot.hitCount;
         deaths.text = "Deaths: " + DeathCounter.deathCount;
         par.text = "Par: " + gameUI.getPar();
