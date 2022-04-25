@@ -20,6 +20,5 @@ public class rotateGameObject : MonoBehaviour
     void Update()
     {
         transform.localEulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, Mathf.PingPong(Time.time * rotationSpeed, 90) - 90);
-        Debug.Log(transform.rotation.z);
     }
 }
