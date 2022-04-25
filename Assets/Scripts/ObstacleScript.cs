@@ -8,8 +8,8 @@ public class ObstacleScript : MonoBehaviour
     //[SerializeField] private DeathCounter deathCounter;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DeathCounter.IncrementDeathCount();
-        Debug.Log(DeathCounter.deathCount);
+        Counter.deathCount++;
+        Debug.Log(Counter.deathCount);
 
         if (collision.gameObject.CompareTag("Gorilla"))
         {

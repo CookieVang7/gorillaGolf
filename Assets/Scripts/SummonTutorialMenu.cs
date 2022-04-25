@@ -24,10 +24,4 @@ public class SummonTutorialMenu : MonoBehaviour
             wall.SetActive(true);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

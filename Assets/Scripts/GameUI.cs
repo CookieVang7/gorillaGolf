@@ -13,7 +13,7 @@ public class GameUI : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        deathCountText.text = "Deaths: " + DeathCounter.deathCount;
+        deathCountText.text = "Deaths: " + Counter.deathCount;
         parText.text = "Par: " + par;
 
     }
@@ -24,17 +24,16 @@ public class GameUI : MonoBehaviour
     }
     public void UpdateDeathCount()
     {
-        Debug.Log(deathCountText.text);
-        deathCountText.text = "Deaths: " + DeathCounter.deathCount;
+        deathCountText.text = "Deaths: " + Counter.deathCount;
     }
 
     private void Update()
     {
-        Timer.currentTime += Time.deltaTime;
-        Timer.seconds = (int)(Timer.currentTime % 60);
-        Timer.minutes = (int)(Timer.currentTime / 60) % 60;
-        Timer.hours = (int)(Timer.currentTime / 3600) % 24;
-        string formattedTime = string.Format("{0:0}:{1:00}:{2:00}", Timer.hours, Timer.minutes, Timer.seconds);
+        Counter.currentTime += Time.deltaTime;
+        Counter.seconds = (int)(Counter.currentTime % 60);
+        Counter.minutes = (int)(Counter.currentTime / 60) % 60;
+        Counter.hours = (int)(Counter.currentTime / 3600) % 24;
+        string formattedTime = string.Format("{0:0}:{1:00}:{2:00}", Counter.hours, Counter.minutes, Counter.seconds);
         timerText.text = formattedTime;
     }
 

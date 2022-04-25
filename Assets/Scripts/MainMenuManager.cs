@@ -16,10 +16,8 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DeathCounter.deathCount = 0;
-        DeathCounter.totalCompletedStrokes = 0;
-        DeathCounter.totalDeathStrokes = 0;
-        Timer.currentTime = 0;
+        Counter.resetCounter();
+
         startGame.onClick.AddListener(
             () =>
             {

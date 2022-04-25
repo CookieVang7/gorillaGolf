@@ -183,7 +183,7 @@ public class GorillaController : MonoBehaviour
         // Reloads the scene when colliding with a spike object (cacti) and increments death counters
         if (collision.gameObject.CompareTag("spike"))
         {
-            DeathCounter.IncrementDeathCount();
+            Counter.deathCount++;
             gameUI.UpdateDeathCount();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

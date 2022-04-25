@@ -6,7 +6,6 @@ using TMPro;
 public class DeathCounter : MonoBehaviour
 {
     private static GameObject instance;
-    public static float deathCount = 0;
     public static float totalDeathStrokes = 0;
     public static float totalCompletedStrokes = 0;
 
@@ -20,10 +19,5 @@ public class DeathCounter : MonoBehaviour
         else
             Destroy(gameObject);
     }
-    public static void IncrementDeathCount()
-    {
-        Debug.Log("you died");
-        deathCount++;
-    }
-
+    // Maybe delete the extra counters
 }
