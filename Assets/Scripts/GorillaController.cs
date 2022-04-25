@@ -72,16 +72,16 @@ public class GorillaController : MonoBehaviour
             escMenu.SetActive(true);
         }
 
-        if (DragNShoot.closeToBall)
-        {
-            Debug.Log("Please god work");
-            animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 1);
-            animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 0);
-        } else
-        {
-            animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 0);
-            animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 1);
-        }
+        //if (DragNShoot.closeToBall)
+        //{
+        //    Debug.Log("Please god work");
+        //    animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 1);
+        //    animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 0);
+        //} else
+        //{
+        //    animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 0);
+        //    animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 1);
+        //}
     }
 
     private void FixedUpdate()
