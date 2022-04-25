@@ -18,7 +18,7 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private AudioSource gorillaNoise; // jump sfx
     [SerializeField] private AudioSource gorillaStomp; // movement sfx
     //[SerializeField] private DeathCounter deathCounter;
-    
+
 
     // New movement variables
     private float horizontalMovement;
@@ -36,8 +36,7 @@ public class GorillaController : MonoBehaviour
     private RaycastHit2D downRay;
     [SerializeField] private GameObject escMenu;
 
-    SpriteRenderer gorillaSprite;
-    Animation animationScript;
+
     void Start()
     {
         // This sets the variables to be approximately the length of half the gorilla collider with some adjustments
@@ -49,9 +48,7 @@ public class GorillaController : MonoBehaviour
 
         //This is a check for each level to see if the music needs to change at the start
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
-        SpriteRenderer gSprite = this.GetComponent<SpriteRenderer>();
-        Animation aScript = this.GetComponent<Animation>();
-
+       
 
     }
     private static readonly int GORILLA_WALK = Animator.StringToHash("GorillaWalk");
@@ -110,7 +107,8 @@ public class GorillaController : MonoBehaviour
 
         if (DragNShoot.closeToBall)
         {
-            Debug.Log("Please god work");
+            //Debug.Log("Please god work");
+           
             animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 1);
             animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 0);
         }
