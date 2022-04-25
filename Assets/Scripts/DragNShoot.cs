@@ -22,12 +22,14 @@ public class DragNShoot : MonoBehaviour
     TrajectoryLine tl;
     Camera cam;
     static public bool closeToBall;
+    SpriteRenderer ballRend;
 
     private void Start() {
         cam = FindObjectOfType<Camera>();
         tl = GetComponent<TrajectoryLine>();
         hitCount = 0;
         closeToBall = false;
+        ballRend = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update() {
@@ -35,13 +37,17 @@ public class DragNShoot : MonoBehaviour
         {
             hittable2 = true;
         }
-        
+
 
         if (Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla)
         {
             closeToBall = true;
+            ballRend.color = Color.green;
         }
-        else closeToBall = false;
+        else {
+            ballRend.color = Color.red;
+            closeToBall = false;
+         };
 
         if (Input.GetMouseButton(0) && hittable2) {
             var mousePosition = Input.mousePosition;
