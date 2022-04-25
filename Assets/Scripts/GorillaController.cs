@@ -24,12 +24,10 @@ public class GorillaController : MonoBehaviour
     private float horizontalMovement;
     private bool haveJump = true;
     private bool jumping = false;
-    private bool horizontalInput = true;
 
     // rayCasting instances / variables
     private float rayCheckDistance; // Created on start()
     private float boxCheckDistance;
-    private float forcedDirection;
     public LayerMask wallLayer;
     private RaycastHit2D rightRay;
     private RaycastHit2D bufferRightRay;
@@ -74,12 +72,7 @@ public class GorillaController : MonoBehaviour
         // This sets a variable to help create velocity under fixedUpdate to move the gorilla in a specified direction
         // It specifies the direction with Input.GetAxisRaw("Horizontal"), which equals -1 when inputting to the left (key: a)
         // and equals 1 when inputting to the right (key: d)
-        if (horizontalInput) {
-            //float horizontal = Input.GetAxisRaw("Horizontal");
-            horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        } else {
-            horizontalMovement = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), 0, forcedDirection) * moveSpeed;
-        }
+        horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
         //float horizontal = Input.GetAxisRaw("Horizontal");
         //horizontalMovement = horizontal * moveSpeed;
 
@@ -178,12 +171,8 @@ public class GorillaController : MonoBehaviour
         private void GorillaWallJump(float wallJumpForce){
         if(rightRay && !isOnGround) {
             gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
-            horizontalInput = false;
-            StartCoroutine(wallJumpBuffer(-1)); 
         } else if (leftRay && !isOnGround) {
             gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
-            horizontalInput = false;
-            StartCoroutine(wallJumpBuffer(1)); 
         }
     }
     // Helps identify if the gorilla is just on a wall
@@ -200,12 +189,5 @@ public class GorillaController : MonoBehaviour
     {
         yield return new WaitForSeconds(.2f);
         jumping = false;
-    }
-
-    IEnumerator wallJumpBuffer(int direction)
-    {
-        forcedDirection = direction;
-        yield return new WaitForSeconds(.2f);
-        horizontalInput = true;
     }
 }
