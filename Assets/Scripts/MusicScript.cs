@@ -60,6 +60,13 @@ public class MusicScript : MonoBehaviour
             this.firstTimeSnow = true;
         }
 
+
+        if ((nameOfScene == "SpaceLevel1" || nameOfScene == "SpaceLevel2" || nameOfScene == "SpaceLevel3") && !this.firstTimeChallenge)
+        {
+            musicPlayer.playTrack(4);
+            this.firstTimeChallenge = true;
+        }
+
         if ((nameOfScene == "BenChallenge" || nameOfScene == "JoshChallenge" || nameOfScene == "LavaChallenge") && !this.firstTimeChallenge)
         {
             musicPlayer.playTrack(5);
