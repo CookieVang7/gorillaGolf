@@ -28,18 +28,15 @@ public class WinScreen : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             });
 
-        strokes.text = "Strokes: " + DragNShoot.hitCount;
+        strokes.text = "Strokes: " + Counter.hitCount;
         par.text = "Par: " + gameUI.getPar();
-        int score = DragNShoot.hitCount - gameUI.getPar();
+        int score = Counter.hitCount - gameUI.getPar();
         if(score > 0) {
              this.score.text = "Score: +" + score;
         }
         else {
             this.score.text = "Score: " + score;
         }
-        DeathCounter.totalCompletedStrokes = DeathCounter.totalCompletedStrokes + DragNShoot.hitCount;
-        Debug.Log("Total Used Strokes: " + DeathCounter.totalCompletedStrokes);
-        Debug.Log("Total Strokes Overall: " + DeathCounter.totalDeathStrokes);
     }
 
 }
