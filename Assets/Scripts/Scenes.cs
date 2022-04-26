@@ -13,7 +13,10 @@
         JoshSnow,
         BenChallenge,
         JoshChallenge,
-        LavaChallenge
+        LavaChallenge,
+        SpaceLevel1,
+        SpaceLevel2,
+        SpaceLevel3
 
 }
 
@@ -49,7 +52,13 @@
                     return "JoshChallenge";
                 case Scenes.LavaChallenge:
                     return "LavaChallenge";
-
+                case Scenes.SpaceLevel1:
+                    return "SpaceLevel1";
+                case Scenes.SpaceLevel2:
+                    return "SpaceLevel2";
+                case Scenes.SpaceLevel3:
+                    return "SpaceLevel3";
+                    
             default:
                     return "Scene Not Found";
             }
