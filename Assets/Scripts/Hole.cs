@@ -8,7 +8,7 @@ public class Hole : MonoBehaviour
 {
     [SerializeField] private Transform holeBottom;
     [SerializeField] private GameObject winScreen;
-    public static WaitForSeconds waitTime = new WaitForSeconds(1f);
+    public static WaitForSeconds waitTime = new WaitForSeconds(0.5f);
 
 
     private void OnCollisionEnter2D(Collision2D collision)
