@@ -10,6 +10,7 @@ public class MusicScript : MonoBehaviour
     private bool firstTimeSand;
     private bool firstTimeSnow;
     private bool firstTimeChallenge;
+    private bool firstTimeSpace;
     public bool fromCourseMenu; //Keeps the music from replaying when going from courses -> mainMenu
     public AudioSource audioSource;
     [SerializeField] public AudioClip[] soundtrack;
@@ -31,6 +32,7 @@ public class MusicScript : MonoBehaviour
         firtimeJungle = false;
         firstTimeSand = false;
         firstTimeSnow = false;
+        firstTimeSpace = false;
         firstTimeChallenge = false;
         fromCourseMenu = false;
     }
@@ -70,13 +72,14 @@ public class MusicScript : MonoBehaviour
         }
 
 
-        if ((nameOfScene == "SpaceLevel1" || nameOfScene == "SpaceLevel2" || nameOfScene == "SpaceLevel3") && !this.firstTimeChallenge)
+        if ((nameOfScene == "SpaceLevel1" || nameOfScene == "SpaceLevel2" || nameOfScene == "SpaceLevel3") && !firstTimeSpace)
         {
             musicPlayer.playTrack(4);
-            this.firstTimeChallenge = true;
+            firstTimeSpace = true;
+            fromCourseMenu = false;
         }
 
-        if ((nameOfScene == "BenChallenge" || nameOfScene == "JoshChallenge" || nameOfScene == "LavaChallenge") && !this.firstTimeChallenge)
+        if ((nameOfScene == "BenChallenge" || nameOfScene == "JoshChallenge" || nameOfScene == "LavaChallenge") && !firstTimeChallenge)
         {
             musicPlayer.playTrack(5);
             firstTimeChallenge = true;
