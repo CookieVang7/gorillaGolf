@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2421,8 +2421,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hello Golfer! The main objective of Gorilla Golf is to play golf! Get the
     ball into the hole to win each level and move on to the next one! Remember, if
-    you get stuck, you can always press "esc" to access menu that has a reset level
-    button along with other various helpful buttons. Good luck!
+    you get stuck, you can always press "R" to reset the level and "esc" to access
+    the menu!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
   m_sharedMaterial: {fileID: 357400752822368799, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
