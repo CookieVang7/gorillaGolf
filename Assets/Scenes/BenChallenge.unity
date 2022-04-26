@@ -2035,10 +2035,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4397964}
     m_Modifications:
+    - target: {fileID: 2432437197965842595, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34bd1acc45755e642b5ed64bd276aeed, type: 3}
     - target: {fileID: 2546719575648251498, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.04
       objectReference: {fileID: 0}
+    - target: {fileID: 2546719575648251500, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34bd1acc45755e642b5ed64bd276aeed, type: 3}
     - target: {fileID: 2546719575933811676, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
       propertyPath: m_Name
       value: Hole
@@ -2047,6 +2055,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 2546719576811785229, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34bd1acc45755e642b5ed64bd276aeed, type: 3}
     - target: {fileID: 2546719576911117537, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.99331194
@@ -2055,6 +2067,10 @@ PrefabInstance:
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 154254729}
+    - target: {fileID: 2546719576911117540, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34bd1acc45755e642b5ed64bd276aeed, type: 3}
     - target: {fileID: 2546719576936836117, guid: e12f53156c11cb948bac1199e95d898f, type: 3}
       propertyPath: m_RootOrder
       value: 0
