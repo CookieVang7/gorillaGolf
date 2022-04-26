@@ -16,22 +16,37 @@ public class DragNShoot : MonoBehaviour
     public Transform Gorilla;
     public Transform cameraTransform;
     bool hittable2 = false;
-    public static int hitCount;
     Vector2 force;
     Vector3 startPoint;
     TrajectoryLine tl;
     Camera cam;
+    static public bool closeToBall;
+    SpriteRenderer ballRend;
 
     private void Start() {
         cam = FindObjectOfType<Camera>();
         tl = GetComponent<TrajectoryLine>();
-        hitCount = 0;
+        Counter.hitCount = 0;
+        closeToBall = false;
+        ballRend = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0) && OnMouseOverBall.hittable && Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla) {
+        if (Input.GetMouseButtonDown(0) && OnMouseOverBall.hittable && Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla)
+        {
             hittable2 = true;
-       }
+        }
+
+
+        if (Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla)
+        {
+            closeToBall = true;
+            ballRend.color = Color.green;
+        }
+        else {
+            ballRend.color = Color.red;
+            closeToBall = false;
+         };
 
         if (Input.GetMouseButton(0) && hittable2) {
             var mousePosition = Input.mousePosition;
@@ -53,9 +68,8 @@ public class DragNShoot : MonoBehaviour
             tl.EndLine();
             ballAudioSource.Play();
             hittable2 = false;
-            hitCount++;
-            gameUI.UpdateHitCount(hitCount);
-            DeathCounter.totalDeathStrokes++;
+            Counter.hitCount++;
+            gameUI.UpdateHitCount(Counter.hitCount);
       }
    }
 }

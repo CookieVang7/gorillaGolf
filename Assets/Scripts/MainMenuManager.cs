@@ -16,10 +16,8 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DeathCounter.deathCount = 0;
-        DeathCounter.totalCompletedStrokes = 0;
-        DeathCounter.totalDeathStrokes = 0;
-        Timer.currentTime = 0;
+        Counter.resetCounter();
+
         startGame.onClick.AddListener(
             () =>
             {
@@ -47,17 +45,10 @@ public class MainMenuManager : MonoBehaviour
                 creditsUI.SetActive(false);
             });
             
-        if(MusicScript.numberOfMusic < 1)
+        if(Counter.numberOfMusic < 1)
         {
             Object.Instantiate(music).GetComponent<MusicScript>().playTrack(0);;
         }
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

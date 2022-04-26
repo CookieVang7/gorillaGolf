@@ -19,6 +19,7 @@ public class Courses : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
         backButton.onClick.AddListener(
             () =>
             {
@@ -79,11 +80,5 @@ public class Courses : MonoBehaviour
                 LoadingScreen.LoadScene("JoshSnow");
             });
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

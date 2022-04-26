@@ -11,14 +11,12 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private Collider2D ballCollider;
     [SerializeField] private Animator animator;
     [SerializeField] private int moveSpeed;
-    private bool isOnGround;
     [SerializeField] private float wallJumpForce;
     [SerializeField] private GameUI gameUI;
     [SerializeField] private float verticalJumpForce;
     [SerializeField] private AudioSource gorillaNoise; // jump sfx
     [SerializeField] private AudioSource gorillaStomp; // movement sfx
-    //[SerializeField] private DeathCounter deathCounter;
-    
+
 
     // New movement variables
     private float horizontalMovement;
@@ -35,6 +33,8 @@ public class GorillaController : MonoBehaviour
     private RaycastHit2D bufferLeftRay;
     private RaycastHit2D downRay;
     [SerializeField] private GameObject escMenu;
+
+
     void Start()
     {
         // This sets the variables to be approximately the length of half the gorilla collider with some adjustments
@@ -46,11 +46,15 @@ public class GorillaController : MonoBehaviour
 
         //This is a check for each level to see if the music needs to change at the start
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
+        
+
     }
     private static readonly int GORILLA_WALK = Animator.StringToHash("GorillaWalk");
+    private static readonly int GORILLA_LEFTJUMP = Animator.StringToHash("GorillaWallLeft");
+    private static readonly int GORILLA_RIGHTJUMP = Animator.StringToHash("GorillaWallRight");
     void Update()
     {
-        // Ray casting / Box casting for conditionals like wall jumping and isOnGround checks
+        // Ray casting / Box casting for conditionals like wall jumping and checking if the gorilla is on the ground
         // Ray casting casts a ray from a specified location to a specified direction/length and if an object collids with it, it becomes true
         rightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance +.3f, wallLayer);
         bufferRightRay = Physics2D.Raycast(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)), rayCheckDistance + 1);
@@ -63,23 +67,19 @@ public class GorillaController : MonoBehaviour
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * (rayCheckDistance + 1), Color.red);
         Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * (rayCheckDistance + .7f), Color.red);
 
-        // This uses the downray to toggle a boolean variable that tells us if the gorilla is on the ground
-        // This is mostly used for making sure the gorilla does not wall jump while also touching the ground
-        if (downRay){
-            isOnGround = true;
-        } else isOnGround = false;
-
         // This sets a variable to help create velocity under fixedUpdate to move the gorilla in a specified direction
         // It specifies the direction with Input.GetAxisRaw("Horizontal"), which equals -1 when inputting to the left (key: a)
         // and equals 1 when inputting to the right (key: d)
         horizontalMovement = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        //float horizontal = Input.GetAxisRaw("Horizontal");
+        float horizontal = Input.GetAxisRaw("Horizontal");
         //horizontalMovement = horizontal * moveSpeed;
 
         // This toggles our gorilla walk animation when the horizontal variable is either -1 or 1 (meaning they are moving)
-        animator.SetBool(GORILLA_WALK, horizontalMovement > 0 || horizontalMovement < 0);
+        animator.SetBool(GORILLA_WALK, ( horizontal > 0 || horizontal < 0) && downRay) ;
+        animator.SetBool(GORILLA_LEFTJUMP, bufferLeftRay && !downRay);
+        animator.SetBool(GORILLA_RIGHTJUMP, bufferRightRay && !downRay);
 
-        
+
         // This dictates the jump keys (space and w) and also checks to see if the bufferRays are within range
         // If the buffer rays are within range it will activate the "jumping" bool which will activate a jump
         // as soon as the corresponding "haveJump" bool is true. This makes it so the wall jumping / jumping input
@@ -95,6 +95,26 @@ public class GorillaController : MonoBehaviour
         {
             Time.timeScale = 0;
             escMenu.SetActive(true);
+        }
+
+        // This is the reset button
+        if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
+        // This changes the animation layer when the Gorilla is close enough to the ball
+        if (DragNShoot.closeToBall)
+        {
+           
+            animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 1);
+            animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 0);
+            
+        }
+        else
+        {
+            animator.SetLayerWeight(animator.GetLayerIndex("Smile Layer"), 0);
+            animator.SetLayerWeight(animator.GetLayerIndex("Base Layer"), 1);
         }
     }
 
@@ -154,7 +174,7 @@ public class GorillaController : MonoBehaviour
         // Reloads the scene when colliding with a spike object (cacti) and increments death counters
         if (collision.gameObject.CompareTag("spike"))
         {
-            DeathCounter.IncrementDeathCount();
+            Counter.deathCount++;
             gameUI.UpdateDeathCount();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -169,9 +189,9 @@ public class GorillaController : MonoBehaviour
     // Method used in fixedUpdate() to help decide if the gorilla should be wall jumping instead
     // of vertical jumping
         private void GorillaWallJump(float wallJumpForce){
-        if(rightRay && !isOnGround) {
+        if(rightRay && !downRay) {
             gorillaRigidbody.AddForce(new Vector2(-wallJumpForce, 0));
-        } else if (leftRay && !isOnGround) {
+        } else if (leftRay && !downRay) {
             gorillaRigidbody.AddForce(new Vector2(wallJumpForce, 0));
         }
     }

@@ -13,14 +13,12 @@ public class FinalWinScreen : MonoBehaviour
     [SerializeField] private TMP_Text par;
     [SerializeField] private TMP_Text strokes;
     [SerializeField] private TMP_Text deaths;
-    [SerializeField] private TMP_Text completedStrokes;
-    [SerializeField] private TMP_Text incompleteStokes;
     [SerializeField] private TMP_Text score;
     [SerializeField] private GameUI gameUI;
     void Start()
     {
+        GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(0);
         Time.timeScale = 0;
-        DeathCounter.totalCompletedStrokes = DeathCounter.totalCompletedStrokes + DragNShoot.hitCount;
         nextLevel.onClick.AddListener(() =>
         {
             Time.timeScale = 1;
@@ -32,18 +30,16 @@ public class FinalWinScreen : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             });
 
-        strokes.text = "Strokes: " + DragNShoot.hitCount;
-        deaths.text = "Deaths: " + DeathCounter.deathCount;
+        strokes.text = "Strokes: " + Counter.hitCount;
+        deaths.text = "Deaths: " + Counter.deathCount;
         par.text = "Par: " + gameUI.getPar();
-        int score = DragNShoot.hitCount - gameUI.getPar();
+        int score = Counter.hitCount - gameUI.getPar();
         if(score > 0) {
              this.score.text = "Score: +" + score;
         }
         else {
             this.score.text = "Score: " + score;
         }
-        completedStrokes.text = "Total Completed Strokes: " + DeathCounter.totalCompletedStrokes;
-        incompleteStokes.text = "Total Strokes: " + DeathCounter.totalDeathStrokes;
     }
 }
 
