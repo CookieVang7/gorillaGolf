@@ -61,6 +61,7 @@ public class EscMenu : MonoBehaviour
                 //confirmRestart.SetActive(true);
                 Time.timeScale = 1;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Counter.deathCount++;
             });
 
         yesRestart.onClick.AddListener(() => {

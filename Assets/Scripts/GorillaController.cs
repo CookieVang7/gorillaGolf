@@ -101,6 +101,7 @@ public class GorillaController : MonoBehaviour
         if (Input.GetKeyDown("r"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Counter.deathCount++;
         }
         
         // This changes the animation layer when the Gorilla is close enough to the ball
