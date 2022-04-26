@@ -16,7 +16,6 @@ public class DragNShoot : MonoBehaviour
     public Transform Gorilla;
     public Transform cameraTransform;
     bool hittable2 = false;
-    public static int hitCount;
     Vector2 force;
     Vector3 startPoint;
     TrajectoryLine tl;
@@ -27,7 +26,7 @@ public class DragNShoot : MonoBehaviour
     private void Start() {
         cam = FindObjectOfType<Camera>();
         tl = GetComponent<TrajectoryLine>();
-        hitCount = 0;
+        Counter.hitCount = 0;
         closeToBall = false;
         ballRend = gameObject.GetComponent<SpriteRenderer>();
     }
@@ -69,9 +68,8 @@ public class DragNShoot : MonoBehaviour
             tl.EndLine();
             ballAudioSource.Play();
             hittable2 = false;
-            hitCount++;
-            gameUI.UpdateHitCount(hitCount);
-            DeathCounter.totalDeathStrokes++;
+            Counter.hitCount++;
+            gameUI.UpdateHitCount(Counter.hitCount);
       }
    }
 }

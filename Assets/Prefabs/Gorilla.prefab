@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 7819369079050948540}
   - component: {fileID: -2700849520128449025}
   - component: {fileID: 2081586122007729356}
-  - component: {fileID: -3898607919573816117}
   m_Layer: 2
   m_Name: Gorilla
   m_TagString: Gorilla
@@ -375,21 +374,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-3898607919573816117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6165445998407194027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fefc57ab97aacf44bb117a94cf320a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 2081586122007729356}
-  smileIdle: {fileID: 21300000, guid: 5f179028111b38e41bddc7a8a5a414fc, type: 3}
-  idle: {fileID: 21300000, guid: df60921ae12b6f3408f20de2ecbd6264, type: 3}
 --- !u!1 &6165445998457830173
 GameObject:
   m_ObjectHideFlags: 0
