@@ -17,18 +17,21 @@ public class FinalWinScreen : MonoBehaviour
     [SerializeField] private GameUI gameUI;
     void Start()
     {
+        Counter.isMenuOpen = true;
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(0);
         Time.timeScale = 0;
         nextLevel.onClick.AddListener(() =>
         {
             Time.timeScale = 1;
             LoadingScreen.LoadScene(nextScene.Name());
+            Counter.isMenuOpen = false;
         });
      
         replay.onClick.AddListener(() => {
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            });
+            Counter.isMenuOpen = false;
+        });
 
         strokes.text = "Strokes: " + Counter.hitCount;
         deaths.text = "Deaths: " + Counter.deathCount;

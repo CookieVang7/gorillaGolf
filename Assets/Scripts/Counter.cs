@@ -12,6 +12,7 @@ public class Counter : MonoBehaviour
     public static float deathCount = 0;
     public static int hitCount;
     public static int numberOfMusic;
+    public static bool isMenuOpen;
 
     public static void resetCounter() {
         currentTime = 0;
@@ -20,5 +21,6 @@ public class Counter : MonoBehaviour
         hours = 0;
         deathCount = 0;
         hitCount = 0;
+        isMenuOpen = false;
     }
 }

@@ -17,16 +17,19 @@ public class WinScreen : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
+        Counter.isMenuOpen = true;
         nextLevel.onClick.AddListener(() => {
 
             LoadingScreen.LoadScene(nextScene.Name());
             Time.timeScale = 1;
+            Counter.isMenuOpen = false;
 
         });
         replay.onClick.AddListener(() => {
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            });
+            Counter.isMenuOpen = false;
+        });
 
         strokes.text = "Strokes: " + Counter.hitCount;
         par.text = "Par: " + gameUI.getPar();

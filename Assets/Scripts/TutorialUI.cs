@@ -12,6 +12,7 @@ public class TutorialUI : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 0;
+        Counter.isMenuOpen = true;
     }
     void Start()
     {
@@ -20,6 +21,7 @@ public class TutorialUI : MonoBehaviour
     {
         Time.timeScale = 1;
         tutorialMenu.SetActive(false);
+        Counter.isMenuOpen = false;
     });
 
     }

@@ -33,7 +33,6 @@ public class GorillaController : MonoBehaviour
     private RaycastHit2D bufferLeftRay;
     private RaycastHit2D downRay;
     [SerializeField] private GameObject escMenu;
-    [SerializeField] private GameObject winScreen;
 
 
     void Start()
@@ -92,15 +91,16 @@ public class GorillaController : MonoBehaviour
         }
 
         // This dictates the button used to access the main menu
-        if (Input.GetKeyDown(KeyCode.Escape) && !winScreen.active)
+        if (Input.GetKeyDown(KeyCode.Escape) && !Counter.isMenuOpen)
         {
             Time.timeScale = 0;
             escMenu.SetActive(true);
         }
 
         // This is the reset button
-        if (Input.GetKeyDown("r") && !escMenu.active && !winScreen.active)
+        if (Input.GetKeyDown("r") && !Counter.isMenuOpen)
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Counter.deathCount++;
         }

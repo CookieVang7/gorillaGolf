@@ -17,12 +17,6 @@ public class EscMenu : MonoBehaviour
 
     [SerializeField] private Button closeControls;
 
-
-
-    [SerializeField] private GameObject confirmRestart;
-    [SerializeField] private Button yesRestart;
-    [SerializeField] private Button noRestart;
-
     [SerializeField] private GameObject controlsScreen;
 
     [SerializeField] private GameObject confirmMainMenu;
@@ -32,11 +26,13 @@ public class EscMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Counter.isMenuOpen = true;
         closeMenu.onClick.AddListener( //closes the menu
             () =>
             {
                 Time.timeScale = 1;
                 escMenu.SetActive(false);
+                Counter.isMenuOpen = false;
             });
 
         mainMenu.onClick.AddListener( //want to go to main menu?
@@ -49,6 +45,7 @@ public class EscMenu : MonoBehaviour
             {
                 Time.timeScale = 1;
                 LoadingScreen.LoadScene("MainMenu");
+                Counter.isMenuOpen = false;
             });
         noMainMenu.onClick.AddListener(
             () =>
@@ -61,17 +58,8 @@ public class EscMenu : MonoBehaviour
                 //confirmRestart.SetActive(true);
                 Time.timeScale = 1;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Counter.isMenuOpen = false;
                 Counter.deathCount++;
-            });
-
-        yesRestart.onClick.AddListener(() => {
-            Time.timeScale = 1;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            });
-        noRestart.onClick.AddListener(
-            () =>
-            {
-                confirmRestart.SetActive(false);
             });
 
 
