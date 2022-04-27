@@ -414,7 +414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.604}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 196, y: 28}
+  m_AnchoredPosition: {x: 240, y: 32}
   m_SizeDelta: {x: 178.4213, y: 111.0478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70758394
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Josh's jarring depression
+  m_text: Cookie's crumby castle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
   m_sharedMaterial: {fileID: 357400752822368799, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
@@ -1832,7 +1832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cookie's Crushing saddness
+  m_text: scott's space adventure
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
   m_sharedMaterial: {fileID: 357400752822368799, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
@@ -2538,7 +2538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.604}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 511, y: 28}
+  m_AnchoredPosition: {x: 507, y: 24}
   m_SizeDelta: {x: 178.4213, y: 111.0478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131821914
