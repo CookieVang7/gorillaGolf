@@ -33,6 +33,7 @@ public class GorillaController : MonoBehaviour
     private RaycastHit2D bufferLeftRay;
     private RaycastHit2D downRay;
     [SerializeField] private GameObject escMenu;
+    [SerializeField] private GameObject winScreen;
 
 
     void Start()
@@ -98,7 +99,7 @@ public class GorillaController : MonoBehaviour
         }
 
         // This is the reset button
-        if (Input.GetKeyDown("r") && !escMenu.active)
+        if (Input.GetKeyDown("r") && !escMenu.active && !winScreen.active)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Counter.deathCount++;

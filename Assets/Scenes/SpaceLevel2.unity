@@ -11346,6 +11346,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   escMenu: {fileID: 757221805}
+  winScreen: {fileID: 896692875}
 --- !u!61 &6165445998066872307
 BoxCollider2D:
   m_ObjectHideFlags: 0
