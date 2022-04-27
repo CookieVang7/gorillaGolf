@@ -98,7 +98,7 @@ public class GorillaController : MonoBehaviour
         }
 
         // This is the reset button
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r") && !escMenu.active)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Counter.deathCount++;
