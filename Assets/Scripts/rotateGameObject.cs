@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class rotateGameObject : MonoBehaviour
 {
-    [SerializeField] private bool rotatingTowardStart = false;
     [SerializeField] private float rotationSpeed;
 
     // Start is called before the first frame update
