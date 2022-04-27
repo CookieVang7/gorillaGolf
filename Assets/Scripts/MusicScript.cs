@@ -42,7 +42,11 @@ public class MusicScript : MonoBehaviour
         string nameOfScene = SceneManager.GetActiveScene().name;
         MusicScript musicPlayer = GameObject.Find("Music(Clone)").GetComponent<MusicScript>();
 
-        if (nameOfScene == "Courses"){
+        if (nameOfScene == "Courses" && firstTimeChallenge){
+            fromCourseMenu = true;
+            musicPlayer.playTrack(0);
+            firstTimeChallenge = false;
+        } else if(nameOfScene == "Courses") {
             fromCourseMenu = true;
         }
 
@@ -79,7 +83,7 @@ public class MusicScript : MonoBehaviour
             fromCourseMenu = false;
         }
 
-        if ((nameOfScene == "BenChallenge" || nameOfScene == "JoshChallenge" || nameOfScene == "LavaChallenge") && !firstTimeChallenge)
+        if ((nameOfScene == "BenChallenge" || nameOfScene == "JoshChallenge" || nameOfScene == "LavaChallenge" || nameOfScene == "ChallengeCourses") && !firstTimeChallenge)
         {
             musicPlayer.playTrack(5);
             firstTimeChallenge = true;

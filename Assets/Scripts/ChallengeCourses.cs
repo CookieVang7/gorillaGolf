@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Courses : MonoBehaviour
+public class ChallengeCourses : MonoBehaviour
 {
     [SerializeField] private Button backButton;
     [SerializeField] private Button hole1;
@@ -12,10 +12,6 @@ public class Courses : MonoBehaviour
     [SerializeField] private Button hole4;
     [SerializeField] private Button hole5;
     [SerializeField] private Button hole6;
-    [SerializeField] private Button hole7;
-    [SerializeField] private Button hole8;
-    [SerializeField] private Button hole9;
-    [SerializeField] private Button next;
 
     // Start is called before the first frame update
     void Start()
@@ -24,69 +20,47 @@ public class Courses : MonoBehaviour
         backButton.onClick.AddListener(
             () =>
             {
-                LoadingScreen.LoadScene("MainMenu");
+                LoadingScreen.LoadScene("Courses");
             });
 
         hole1.onClick.AddListener(
             () =>
             {
-                LoadingScreen.LoadScene("TutorialLevel");
+                LoadingScreen.LoadScene("BenChallenge");
             });
 
         hole2.onClick.AddListener(
             () =>
             {
-                LoadingScreen.LoadScene("JungleLevel2");
+                LoadingScreen.LoadScene("LavaChallenge");
             });
 
         hole3.onClick.AddListener(
             () =>
             {
-                LoadingScreen.LoadScene("JungleLevel3");
+                LoadingScreen.LoadScene("JoshChallenge");
             });
 
         hole4.onClick.AddListener(
             () =>
             {
-                LoadingScreen.LoadScene("SandLevel1");
+                LoadingScreen.LoadScene("SpaceLevel1");
             });
 
         hole5.onClick.AddListener(
             () =>
             {
-                LoadingScreen.LoadScene("SandLevel2");
+                LoadingScreen.LoadScene("SpaceLevel2");
             });
 
         hole6.onClick.AddListener(
             () =>
             {
-                LoadingScreen.LoadScene("SandLevel3");
+                LoadingScreen.LoadScene("SpaceLevel3");
             });
 
-        hole7.onClick.AddListener(
-            () =>
-            {
-                LoadingScreen.LoadScene("SnowLevel1");
-            });
-
-        hole8.onClick.AddListener(
-            () =>
-            {
-                LoadingScreen.LoadScene("SnowLevel2");
-            });
-
-        hole9.onClick.AddListener(
-            () =>
-            {
-                LoadingScreen.LoadScene("JoshSnow");
-            });
-
-        next.onClick.AddListener(
-            () =>
-            {
-                LoadingScreen.LoadScene("ChallengeCourses");
-            });
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
 
     }
 }
+
