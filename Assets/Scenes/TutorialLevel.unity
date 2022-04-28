@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1335,8 +1335,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: As you are pushing into the wall, you can press jump to perform a walljump!
-    The walljump pushes you away from the wall you are pressing into!
+  m_text: As you are pushing into the wall, you can press jump to perform a wall
+    jump! The wall jump pushes you away from the wall you are pressing into!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
   m_sharedMaterial: {fileID: 357400752822368799, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
@@ -2559,7 +2559,7 @@ MonoBehaviour:
   m_text: Salutations gamer! You are not limited to just hitting the ball with the
     mouse! The gorilla is capable of holding the ball on his back as well as hitting
     the ball off of his back! Also, in this position you can jump to get a lot of
-    vertical power! Just be careful be cause the goilla will walk over the ball,
+    vertical power! Just be careful because the gorilla will walk over the ball,
     but the ball will still contact his back!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
@@ -3192,8 +3192,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Grettings fellow gamer! In the jungle there will be some birds looking
-    to assist you! You can gain a jump by jumping into the birds and you can sit
+  m_text: Greetings fellow gamer! In the jungle there will be some birds looking
+    to assist you! You can gain a jump by jumping into the birds and you can stand
     on them! They will also affect the ball!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a920ae090cdec64fa13d65ce66cd222, type: 2}
