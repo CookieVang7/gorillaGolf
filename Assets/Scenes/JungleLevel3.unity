@@ -316,6 +316,10 @@ PrefabInstance:
       value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 4984983375655194685, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+      propertyPath: ballRigidBody
+      value: 
+      objectReference: {fileID: 2019411554}
+    - target: {fileID: 4984983375655194685, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
       propertyPath: ballAudioSource
       value: 
       objectReference: {fileID: 326199816}
@@ -4572,6 +4576,10 @@ PrefabInstance:
       propertyPath: verticalJumpForce
       value: 3500
       objectReference: {fileID: 0}
+    - target: {fileID: 6165445998457830175, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 2e8618b2b6cef2c4dac293ba0561b7ce, type: 2}
     - target: {fileID: 7819369079050948540, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
       propertyPath: m_Volume
       value: 1
@@ -5302,6 +5310,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &2019411554 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4984983375655194684, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+  m_PrefabInstance: {fileID: 326199815}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2546719576709801208
 PrefabInstance:
   m_ObjectHideFlags: 0

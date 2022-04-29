@@ -8,6 +8,7 @@ public class DragNShoot : MonoBehaviour
     [SerializeField] public float power = 10f;
     [SerializeField] private GameUI gameUI;
     [SerializeField] private AudioSource ballAudioSource;
+    [SerializeField] private Rigidbody2D ballRigidBody;
     [SerializeField]
     public Vector2 minPower;
     public Vector2 maxPower;
@@ -71,6 +72,22 @@ public class DragNShoot : MonoBehaviour
             Counter.hitCount++;
             gameUI.UpdateHitCount(Counter.hitCount);
       }
+   }
+
+   void OnCollisionEnter2D(Collision2D collision)
+   {
+       if (collision.transform.CompareTag("Gorilla"))
+       {
+           ballRigidBody.freezeRotation = true;
+       }
+   }
+
+   void OnCollisionExit2D(Collision2D collision)
+   {
+       if (collision.transform.CompareTag("Gorilla"))
+       {
+           ballRigidBody.freezeRotation = false;
+       }
    }
 }
 
