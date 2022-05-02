@@ -5291,6 +5291,7 @@ MonoBehaviour:
   power: 4.9
   gameUI: {fileID: 1742324029}
   ballAudioSource: {fileID: 4117712074336305169}
+  escMenu: {fileID: 1173950414}
   minPower: {x: -9, y: -9}
   maxPower: {x: 9, y: 9}
   rb: {fileID: 4984983374203510501}
@@ -5756,7 +5757,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   escMenu: {fileID: 1173950414}
-  winScreen: {fileID: 154254729}
 --- !u!50 &6165445999597758670
 Rigidbody2D:
   serializedVersion: 4
