@@ -39,7 +39,7 @@ public class GorillaController : MonoBehaviour
     {
         // This sets the variables to be approximately the length of half the gorilla collider with some adjustments
         horizontalCheckDistance =  gorillaCollider.bounds.extents.x;
-        verticalCheckDistance = gorillaCollider.bounds.extents.y - .3f;
+        verticalCheckDistance = gorillaCollider.bounds.extents.y;
 
         //This makes it so the gorilla's feet cannot touch the ball
         Physics2D.IgnoreCollision(ballCollider, gorillaCollider);
@@ -133,8 +133,8 @@ public class GorillaController : MonoBehaviour
             GorillaWallJump(wallJumpForce);
             jumping = false;
             haveJump = false;
+            Debug.Log("fixed update jump " + haveJump);
 
-            // Gorilla jump noise
             if (gorillaNoise.isPlaying) // play gorilla jump noise 
             {
                 gorillaNoise.Stop();
@@ -151,6 +151,7 @@ public class GorillaController : MonoBehaviour
         if (!collision.gameObject.CompareTag("Ball"))
         {
             haveJump = true;
+            //Debug.Log("haveJump " + haveJump);
         }
 
         // This is the gorilla walking noise. It plays as long as he is not moving into a wall and if he is moving.
@@ -186,7 +187,12 @@ public class GorillaController : MonoBehaviour
     // Helps get rid of the gorilla's jump when he is no longer touching something
     private void OnCollisionExit2D(Collision2D collision)
     {
-        haveJump = false;
+        if (!downRay)
+        {
+            StartCoroutine(wallJumpBuffer());
+        }
+        else haveJump = false;
+        
     }
     // Method used in fixedUpdate() to help decide if the gorilla should be wall jumping instead
     // of vertical jumping
@@ -211,5 +217,17 @@ public class GorillaController : MonoBehaviour
     {
         yield return new WaitForSeconds(.2f);
         jumping = false;
+    }
+
+
+    /// <summary>
+    /// Buffer that allows for horizontal movement away from the wall while still being able to walljump briefly
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator wallJumpBuffer()
+    {
+        yield return new WaitForSeconds(.3f);
+        haveJump = false;
+        Debug.Log("wall jump haveJump " + haveJump);
     }
 }
