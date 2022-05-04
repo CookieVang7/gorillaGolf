@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2546719575648251498}
   - component: {fileID: 2546719575648251500}
   - component: {fileID: 2546719575648251499}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Edge2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2546719576936836117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2546719575938864333}
   - component: {fileID: 2546719575938864334}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 2546719576811785227}
   - component: {fileID: 2546719576811785229}
   - component: {fileID: 2546719576811785228}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Edge1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 2546719576911117540}
   - component: {fileID: 2546719576911117539}
   - component: {fileID: 2546719576911117538}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: winTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   - component: {fileID: 3602204425063445755}
   - component: {fileID: 2432437197965842595}
   - component: {fileID: 3340910310769835494}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bottom (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

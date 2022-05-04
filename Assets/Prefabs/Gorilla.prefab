@@ -112,11 +112,10 @@ MonoBehaviour:
   verticalJumpForce: 3500
   gorillaNoise: {fileID: -2700849520128449025}
   gorillaStomp: {fileID: 7819369079050948540}
-  wallLayer:
+  ground:
     serializedVersion: 2
     m_Bits: 8
   escMenu: {fileID: 2840285704394917405, guid: 7abb039c480748248a6de88e50c57dbe, type: 3}
-  winScreen: {fileID: 572692137896552875, guid: 5e1fdc76ea26f1a428b153d0ac5ea1f5, type: 3}
 --- !u!50 &6165445998407194028
 Rigidbody2D:
   serializedVersion: 4

@@ -26,11 +26,9 @@ public class GorillaController : MonoBehaviour
     // rayCasting instances / variables
     private float horizontalCheckDistance; // Created on start()
     private float verticalCheckDistance;
-    public LayerMask wallLayer;
+    public LayerMask ground;
     private RaycastHit2D rightRay;
-    private RaycastHit2D bufferRightRay;
     private RaycastHit2D leftRay;
-    private RaycastHit2D bufferLeftRay;
     private RaycastHit2D downRay;
     [SerializeField] private GameObject escMenu;
 
@@ -56,16 +54,14 @@ public class GorillaController : MonoBehaviour
     {
         // Ray casting / Box casting for conditionals like wall jumping and checking if the gorilla is on the ground
         // Ray casting casts a ray from a specified location to a specified direction/length and if an object collids with it, it becomes true
-        rightRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(1, 0)), horizontalCheckDistance, wallLayer);
-        bufferRightRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(1, 0)), horizontalCheckDistance + .5f, wallLayer);
-        leftRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(-1, 0)), horizontalCheckDistance, wallLayer);
-        bufferLeftRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(-1, 0)), horizontalCheckDistance + .5f, wallLayer);
-        downRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents*2, 0f, gorillaTransform.TransformDirection(new Vector2(0, -1)), verticalCheckDistance, wallLayer);
+        rightRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(1, 0)), horizontalCheckDistance + .5f, ground);
+        leftRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents, 0f, gorillaTransform.TransformDirection(new Vector2(-1, 0)), horizontalCheckDistance + .5f, ground);
+        downRay = Physics2D.BoxCast(gorillaCollider.bounds.center, gorillaCollider.bounds.extents*2, 0f, gorillaTransform.TransformDirection(new Vector2(0, -1)), verticalCheckDistance, ground);
 
         // This is to help debug the rays. It creates a visual to see exactly how long and where the rays are comming from
         // Current: Checking the buffer ray lengths
-        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * (horizontalCheckDistance + 1), Color.red);
-        Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * (horizontalCheckDistance + .7f), Color.red);
+        //Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(1, 0)) * (horizontalCheckDistance + 1), Color.red);
+        //Debug.DrawRay(gorillaTransform.position, gorillaTransform.TransformDirection(new Vector2(-1, 0)) * (horizontalCheckDistance + .7f), Color.red);
 
         // This sets a variable to help create velocity under fixedUpdate to move the gorilla in a specified direction
         // It specifies the direction with Input.GetAxisRaw("Horizontal"), which equals -1 when inputting to the left (key: a)
@@ -76,15 +72,15 @@ public class GorillaController : MonoBehaviour
 
         // This toggles our gorilla walk animation when the horizontal variable is either -1 or 1 (meaning they are moving)
         animator.SetBool(GORILLA_WALK, ( horizontal > 0 || horizontal < 0) && downRay) ;
-        animator.SetBool(GORILLA_LEFTJUMP, bufferLeftRay && !downRay);
-        animator.SetBool(GORILLA_RIGHTJUMP, bufferRightRay && !downRay);
+        animator.SetBool(GORILLA_LEFTJUMP, leftRay && !downRay);
+        animator.SetBool(GORILLA_RIGHTJUMP, rightRay && !downRay);
 
 
         // This dictates the jump keys (space and w) and also checks to see if the bufferRays are within range
         // If the buffer rays are within range it will activate the "jumping" bool which will activate a jump
         // as soon as the corresponding "haveJump" bool is true. This makes it so the wall jumping / jumping input
         // is not so exact.
-        if ((Input.GetKeyDown("w")) && (bufferRightRay || bufferLeftRay || downRay) || (Input.GetKeyDown("space") && (bufferRightRay || bufferLeftRay || downRay))) // player jump
+        if ((Input.GetKeyDown("w")) && (rightRay || leftRay || downRay) || (Input.GetKeyDown("space") && (rightRay || leftRay || downRay))) // player jump
         {
             jumping = true;
             StartCoroutine(jumpBuffer()); 
@@ -133,7 +129,6 @@ public class GorillaController : MonoBehaviour
             GorillaWallJump(wallJumpForce);
             jumping = false;
             haveJump = false;
-            Debug.Log("fixed update jump " + haveJump);
 
             if (gorillaNoise.isPlaying) // play gorilla jump noise 
             {
@@ -228,6 +223,5 @@ public class GorillaController : MonoBehaviour
     {
         yield return new WaitForSeconds(.3f);
         haveJump = false;
-        Debug.Log("wall jump haveJump " + haveJump);
     }
 }
