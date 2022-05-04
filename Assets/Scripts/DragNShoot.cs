@@ -8,6 +8,7 @@ public class DragNShoot : MonoBehaviour
     [SerializeField] public float power = 10f;
     [SerializeField] private GameUI gameUI;
     [SerializeField] private AudioSource ballAudioSource;
+    [SerializeField] private GameObject escMenu;
     [SerializeField]
     public Vector2 minPower;
     public Vector2 maxPower;
@@ -32,7 +33,7 @@ public class DragNShoot : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0) && OnMouseOverBall.hittable && Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla)
+        if (Input.GetMouseButtonDown(0) && OnMouseOverBall.hittable && Vector3.Distance(Ball.position, Gorilla.position) <= maxDistanceBallGorilla && !escMenu.activeInHierarchy )
         {
             hittable2 = true;
         }
@@ -48,7 +49,7 @@ public class DragNShoot : MonoBehaviour
             closeToBall = false;
          };
 
-        if (Input.GetMouseButton(0) && hittable2) {
+        if (Input.GetMouseButton(0) && hittable2 && !escMenu.activeInHierarchy) {
             var mousePosition = Input.mousePosition;
             mousePosition.z = -cameraTransform.position.z;
             Vector3 currentPoint = cam.ScreenToWorldPoint(mousePosition);
@@ -59,7 +60,7 @@ public class DragNShoot : MonoBehaviour
             tl.RenderLine(startPoint, currentPoint);
       }
 
-        if (Input.GetMouseButtonUp(0) && hittable2) {
+        if (Input.GetMouseButtonUp(0) && hittable2 && !escMenu.activeInHierarchy) {
             var endPoint = tl.getEndpoint();
             force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
             rb.velocity = Vector3.zero;
