@@ -87,7 +87,7 @@ public class GorillaController : MonoBehaviour
         }
 
         // This dictates the button used to access the main menu
-        if (Input.GetKeyDown(KeyCode.Escape) && !Counter.isMenuOpen)
+        if (Input.GetKeyDown(KeyCode.Escape) && !Counter.isMenuOpen && !LoadingScreen.instance.isRunning)
         {
             Time.timeScale = 0;
             escMenu.SetActive(true);

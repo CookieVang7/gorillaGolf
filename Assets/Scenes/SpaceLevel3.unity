@@ -6902,7 +6902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640409c3bac44af48a73a44191a92815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotatingTowardStart: 0
   rotationSpeed: 40
 --- !u!4 &1874148090
 Transform:
@@ -7300,6 +7299,7 @@ MonoBehaviour:
   power: 4.9
   gameUI: {fileID: 1742324029}
   ballAudioSource: {fileID: 4117712074336305169}
+  escMenu: {fileID: 1173950414}
   minPower: {x: -9, y: -9}
   maxPower: {x: 9, y: 9}
   rb: {fileID: 4984983374203510501}
@@ -7765,7 +7765,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   escMenu: {fileID: 1173950414}
-  winScreen: {fileID: 244635357}
 --- !u!50 &6165445999597758670
 Rigidbody2D:
   serializedVersion: 4
