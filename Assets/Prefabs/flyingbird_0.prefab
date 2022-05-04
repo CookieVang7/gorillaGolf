@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8753243746792254384}
   - component: {fileID: 8753243746792254385}
   - component: {fileID: 8753243746792254390}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: flyingbird_0
   m_TagString: jumpReset
   m_Icon: {fileID: 0}
