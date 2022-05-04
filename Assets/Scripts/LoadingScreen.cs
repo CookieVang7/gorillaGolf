@@ -48,7 +48,7 @@ public class LoadingScreen : MonoBehaviour
         float elapsedTime = 0;
         while (progress <= 1)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
             progress = elapsedTime / FADE_TIME;
             mainImage.color = Color.Lerp(startColor, endColor, Easing.easeInOutSine(0, 1, progress));
             yield return null;
@@ -65,7 +65,7 @@ public class LoadingScreen : MonoBehaviour
         elapsedTime = 0;
         while (progress <= 1)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
             progress = elapsedTime / FADE_TIME;
             mainImage.color = Color.Lerp(startColor, endColor, Easing.easeInOutSine(0, 1, progress));
             yield return null;
