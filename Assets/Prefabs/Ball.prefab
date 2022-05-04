@@ -143,6 +143,7 @@ MonoBehaviour:
   power: 4.9
   gameUI: {fileID: 433822280081305720, guid: f968a16a0f92c164391e949b1050dacf, type: 3}
   ballAudioSource: {fileID: -5105659961856225592}
+  ballRigidBody: {fileID: 4984983375655194684}
   escMenu: {fileID: 2840285704394917405, guid: 7abb039c480748248a6de88e50c57dbe, type: 3}
   minPower: {x: -9, y: -9}
   maxPower: {x: 9, y: 9}
