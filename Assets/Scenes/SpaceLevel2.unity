@@ -9520,6 +9520,7 @@ MonoBehaviour:
   power: 4.9
   gameUI: {fileID: 127487673}
   ballAudioSource: {fileID: 1080636929}
+  escMenu: {fileID: 757221805}
   minPower: {x: -9, y: -9}
   maxPower: {x: 9, y: 9}
   rb: {fileID: 1080636934}
@@ -11346,7 +11347,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   escMenu: {fileID: 757221805}
-  winScreen: {fileID: 896692875}
 --- !u!61 &6165445998066872307
 BoxCollider2D:
   m_ObjectHideFlags: 0
