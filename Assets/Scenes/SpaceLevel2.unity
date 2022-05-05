@@ -9520,13 +9520,13 @@ MonoBehaviour:
   power: 4.9
   gameUI: {fileID: 127487673}
   ballAudioSource: {fileID: 1080636929}
-  ballRigidBody: {fileID: 0}
+  ballRigidBody: {fileID: 1080636934}
   escMenu: {fileID: 757221805}
   minPower: {x: -9, y: -9}
   maxPower: {x: 9, y: 9}
   rb: {fileID: 1080636934}
   Ball: {fileID: 1080636937}
-  Gorilla: {fileID: 0}
+  Gorilla: {fileID: 1097457450}
   cameraTransform: {fileID: 780265889}
 --- !u!50 &1080636934
 Rigidbody2D:
@@ -9630,6 +9630,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1097457450 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6165445998407194029, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+  m_PrefabInstance: {fileID: 1252150795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1245917501
 PrefabInstance:
   m_ObjectHideFlags: 0
