@@ -30,6 +30,7 @@ public class FinalWinScreen : MonoBehaviour
         replay.onClick.AddListener(() => {
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameObject.Find("Music(Clone)").GetComponent<MusicScript>().resetLevelBool();
             Counter.isMenuOpen = false;
         });
 
