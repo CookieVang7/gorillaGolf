@@ -15,6 +15,12 @@ public class FinalWinScreen : MonoBehaviour
     [SerializeField] private TMP_Text deaths;
     [SerializeField] private TMP_Text score;
     [SerializeField] private GameUI gameUI;
+    public TMP_InputField userNameInput;
+    public PlayfabManager playfabManager;
+    public GameObject timeLeaderBoards;
+
+    public string username;
+
     void Start()
     {
         Counter.isMenuOpen = true;
@@ -44,6 +50,33 @@ public class FinalWinScreen : MonoBehaviour
         else {
             this.score.text = "Score: " + score;
         }
+    }
+
+
+    ///<summary>
+    /// Submit completion time to leaderboards (currently just works for challenge courses)
+    ///</summary>
+    public void SubmitTime()
+    {
+        username = userNameInput.text;
+        playfabManager.UpdateUserTitleDisplayNameRequest(username);
+        playfabManager.SendLeaderboardTime((int)Counter.currentTime);
+        userNameInput.gameObject.SetActive(false);
+        StartCoroutine(WaitThenDisplayTimes());
+        // open leaderboards
+    }
+
+
+    ///<summary>
+    /// Delay showing leaderboard times for a bit so we can get updates from the server.
+    /// \n Not super elegant but it should work unless the server is dying.
+    /// </summary>
+    public IEnumerator WaitThenDisplayTimes()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        playfabManager.GetTimeLeaderboard();
+        yield return new WaitForSecondsRealtime(1f);
+        timeLeaderBoards.SetActive(true);
     }
 }
 
