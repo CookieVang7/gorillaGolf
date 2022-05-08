@@ -18,11 +18,18 @@ public class FinalWinScreen : MonoBehaviour
     public TMP_InputField userNameInput;
     public PlayfabManager playfabManager;
     public GameObject timeLeaderBoards;
+    public GameObject rowParent; // vertical layout group for score rows
 
     public string username;
 
+    void Awake()
+    {
+        playfabManager = GameObject.Find("PlayfabManager").GetComponent<PlayfabManager>();
+    }
+
     void Start()
     {
+        playfabManager.rowsParent = rowParent.transform;
         Counter.isMenuOpen = true;
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().playTrack(0);
         Time.timeScale = 0;
@@ -63,13 +70,12 @@ public class FinalWinScreen : MonoBehaviour
         playfabManager.SendLeaderboardTime((int)Counter.currentTime);
         userNameInput.gameObject.SetActive(false);
         StartCoroutine(WaitThenDisplayTimes());
-        // open leaderboards
     }
 
 
     ///<summary>
     /// Delay showing leaderboard times for a bit so we can get updates from the server.
-    /// \n Not super elegant but it should work unless the server is dying.
+    /// Not super elegant but it should work unless the server is dying.
     /// </summary>
     public IEnumerator WaitThenDisplayTimes()
     {
@@ -77,6 +83,11 @@ public class FinalWinScreen : MonoBehaviour
         playfabManager.GetTimeLeaderboard();
         yield return new WaitForSecondsRealtime(1f);
         timeLeaderBoards.SetActive(true);
+    }
+
+    public void CloseLeaderboards()
+    {
+        timeLeaderBoards.SetActive(false);
     }
 }
 

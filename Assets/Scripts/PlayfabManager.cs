@@ -11,8 +11,17 @@ public class PlayfabManager : MonoBehaviour
 
     public GameObject rowPrefab;
     public Transform rowsParent;
+
+    private static PlayfabManager playfabInstance; //check if we have more than one copy of playfabmanager
     void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
+
+        if (playfabInstance == null) // make sure we don't duplicate this when reloading scenes
+        {
+            playfabInstance = this;
+        }
+        else GameObject.Destroy(gameObject);
         Login();
     }
 
