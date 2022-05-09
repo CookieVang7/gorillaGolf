@@ -8,7 +8,6 @@ using TMPro;
 
 public class PlayfabManager : MonoBehaviour
 {
-
     public GameObject rowPrefab;
     public Transform rowsParent;
 
@@ -68,7 +67,7 @@ public class PlayfabManager : MonoBehaviour
             Statistics = new List<StatisticUpdate> {
                 new StatisticUpdate {
                     StatisticName = leaderboardName,
-                    Value = time
+                    Value = -time // super annoying workaround - playfab doesn't actually sort by descending order... largest always gets higher placement
                 }
             }
         };
@@ -94,7 +93,7 @@ public class PlayfabManager : MonoBehaviour
                 TMP_Text[] rowInfo = rowGO.GetComponentsInChildren<TMP_Text>();
                 rowInfo[0].text = item.Position.ToString();
                 rowInfo[1].text = item.DisplayName;
-                rowInfo[2].text = FormatLeaderboardTime(item.StatValue); // convert score time from int to formatted time
+                rowInfo[2].text = FormatLeaderboardTime(-item.StatValue); // convert score time from int to formatted time
             }
         }
     }
