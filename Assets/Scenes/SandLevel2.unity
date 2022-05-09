@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13702,8 +13702,21 @@ PrefabInstance:
       propertyPath: ballCollider
       value: 
       objectReference: {fileID: 1539673839}
+    - target: {fileID: 6165445998407194031, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: terrainCollider
+      value: 
+      objectReference: {fileID: 847539987}
+    - target: {fileID: 6165445998407194031, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+      propertyPath: gorillaBackCollider
+      value: 
+      objectReference: {fileID: 1635643819}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+--- !u!60 &1635643819 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6165445998457830175, guid: 110ac6f6d8285b24a93f66bbea189e26, type: 3}
+  m_PrefabInstance: {fileID: 1565878928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1671653950 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2840285704394917405, guid: 7abb039c480748248a6de88e50c57dbe, type: 3}

@@ -105,6 +105,7 @@ MonoBehaviour:
   gorillaRigidbody: {fileID: 6165445998407194028}
   gorillaCollider: {fileID: 6165445998407194030}
   ballCollider: {fileID: 4984983375655194659, guid: af8381e59e234784c9eabde197d8eaa7, type: 3}
+  gorillaBackCollider: {fileID: 6165445998457830175}
   animator: {fileID: 2081586122007729356}
   moveSpeed: 5000
   wallJumpForce: 2200
@@ -112,6 +113,7 @@ MonoBehaviour:
   verticalJumpForce: 3500
   gorillaNoise: {fileID: -2700849520128449025}
   gorillaStomp: {fileID: 7819369079050948540}
+  terrainCollider: {fileID: 0}
   ground:
     serializedVersion: 2
     m_Bits: 8

@@ -9,6 +9,7 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private Rigidbody2D gorillaRigidbody;
     [SerializeField] private Collider2D gorillaCollider;
     [SerializeField] private Collider2D ballCollider;
+    [SerializeField] private PolygonCollider2D gorillaBackCollider;
     [SerializeField] private Animator animator;
     [SerializeField] private int moveSpeed;
     [SerializeField] private float wallJumpForce;
@@ -16,6 +17,7 @@ public class GorillaController : MonoBehaviour
     [SerializeField] private float verticalJumpForce;
     [SerializeField] private AudioSource gorillaNoise; // jump sfx
     [SerializeField] private AudioSource gorillaStomp; // movement sfx
+    [SerializeField] private CompositeCollider2D terrainCollider;
 
 
     // New movement variables
@@ -41,6 +43,7 @@ public class GorillaController : MonoBehaviour
 
         //This makes it so the gorilla's feet cannot touch the ball
         Physics2D.IgnoreCollision(ballCollider, gorillaCollider);
+        Physics2D.IgnoreCollision(gorillaBackCollider, terrainCollider);
 
         //This is a check for each level to see if the music needs to change at the start
         GameObject.Find("Music(Clone)").GetComponent<MusicScript>().setMusic();
