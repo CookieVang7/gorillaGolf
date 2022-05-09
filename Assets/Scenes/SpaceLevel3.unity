@@ -7038,5 +7038,24 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9053413150476286774, guid: de0b3bfd0ccfd8247af17217994eeaf5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3269817751163895157}
+    - target: {fileID: 9053413150476286774, guid: de0b3bfd0ccfd8247af17217994eeaf5, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SubmitTime
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de0b3bfd0ccfd8247af17217994eeaf5, type: 3}
+--- !u!114 &3269817751163895157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3269817752678572847, guid: de0b3bfd0ccfd8247af17217994eeaf5, type: 3}
+  m_PrefabInstance: {fileID: 3269817751163895156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572692138789468152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 510db8b8aac1d7745a7151a5ee1feee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

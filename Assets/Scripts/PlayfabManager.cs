@@ -62,12 +62,12 @@ public class PlayfabManager : MonoBehaviour
     }
 
 
-    public void SendLeaderboardTime(int time)
+    public void SendLeaderboardTime(int time, string leaderboardName)
     {
         var request = new UpdatePlayerStatisticsRequest {
             Statistics = new List<StatisticUpdate> {
                 new StatisticUpdate {
-                    StatisticName = "Best Challenge Course Times",
+                    StatisticName = leaderboardName,
                     Value = time
                 }
             }
@@ -75,10 +75,10 @@ public class PlayfabManager : MonoBehaviour
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
     }
 
-    public void GetTimeLeaderboard()
+    public void GetTimeLeaderboard(string leaderboardName)
     {
         var request = new GetLeaderboardRequest {
-            StatisticName = "Best Challenge Course Times",
+            StatisticName = leaderboardName,
             StartPosition = 0,
             MaxResultsCount = 10
         };

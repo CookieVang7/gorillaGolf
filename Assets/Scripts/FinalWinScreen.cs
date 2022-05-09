@@ -21,6 +21,8 @@ public class FinalWinScreen : MonoBehaviour
     public GameObject rowParent; // vertical layout group for score rows
 
     public string username;
+    public static readonly string challengeLeaderboardName = "Best Challenge Course Times";
+    public static readonly string casualLeaderboardName = "Best Casual Course Times";
 
     void Awake()
     {
@@ -62,14 +64,23 @@ public class FinalWinScreen : MonoBehaviour
 
     ///<summary>
     /// Submit completion time to leaderboards (currently just works for challenge courses)
+    /// leaderboardName refers to the specific leaderboard (currently Best Casual Course Times and Best Challenge Course Times)
+    /// stored within Playfab
     ///</summary>
     public void SubmitTime()
     {
+        string leaderboardName;
+        if (SceneManager.GetActiveScene().name == "SpaceLevel3") // assumes a pretty static state of our levels that should be fine since we probably won't be making more
+        {
+            leaderboardName = challengeLeaderboardName;
+        }
+        else leaderboardName = casualLeaderboardName; 
+
         username = userNameInput.text;
         playfabManager.UpdateUserTitleDisplayNameRequest(username);
-        playfabManager.SendLeaderboardTime((int)Counter.currentTime);
+        playfabManager.SendLeaderboardTime((int)Counter.currentTime, leaderboardName);
         userNameInput.gameObject.SetActive(false);
-        StartCoroutine(WaitThenDisplayTimes());
+        StartCoroutine(WaitThenDisplayTimes(leaderboardName));
     }
 
 
@@ -77,10 +88,10 @@ public class FinalWinScreen : MonoBehaviour
     /// Delay showing leaderboard times for a bit so we can get updates from the server.
     /// Not super elegant but it should work unless the server is dying.
     /// </summary>
-    public IEnumerator WaitThenDisplayTimes()
+    public IEnumerator WaitThenDisplayTimes(string leaderboardName)
     {
         yield return new WaitForSecondsRealtime(1f);
-        playfabManager.GetTimeLeaderboard();
+        playfabManager.GetTimeLeaderboard(leaderboardName);
         yield return new WaitForSecondsRealtime(1f);
         timeLeaderBoards.SetActive(true);
     }
